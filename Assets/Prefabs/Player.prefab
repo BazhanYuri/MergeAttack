@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startShootDelay: 0.5
   _shootDelay: 1
+  _damage: 25
   _animator: {fileID: 3927435362570136814}
 --- !u!1 &4724428932624642663
 GameObject:

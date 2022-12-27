@@ -45,7 +45,10 @@ namespace FPS
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-
+                if (hit.collider.TryGetComponent(out DamagablePart damagable))
+                {
+                    damagable.GetDamage(_weapons[_weaponIndex].Damage);
+                }
             }
 
 
