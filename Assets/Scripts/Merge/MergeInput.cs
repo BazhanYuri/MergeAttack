@@ -109,15 +109,27 @@ namespace Merge
 
         private void FinishMoving(Vector2 touchPos)
         {
-            if (RayCheck<Cell>(touchPos).TryGetComponent(out Cell cell))
+            _isItemDetected = false;
+
+            if (RayCheck<Cell>(touchPos) != null)
             {
-                print(cell.gameObject.name);
-                _slidedItem.ItemMovement.MoveToCell(cell.transform.localPosition);
-                return;
+                if (RayCheck<Cell>(touchPos).TryGetComponent(out Cell cell))
+                {
+                    if (cell.isEmpty() == true || cell.CurrentItem.GetHashCode() == _slidedItem.GetHashCode())
+                    {
+                        _slidedItem.ItemMovement.MoveToCell(cell);
+                        return;
+                    }
+                    else if (cell.CurrentItem.ItemMerge.Index == _slidedItem.ItemMerge.Index && cell.CurrentItem.ItemType == _slidedItem.ItemType)
+                    {
+                        cell.CurrentItem.ItemMerge.Merge(_slidedItem);
+                    }
+                }
             }
+            
+
 
             _slidedItem.ItemMovement.MoveBack();
-            _isItemDetected = false;
         }
     }
 }
