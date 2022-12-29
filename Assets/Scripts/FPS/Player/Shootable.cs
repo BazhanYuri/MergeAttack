@@ -6,10 +6,11 @@ namespace FPS
 {
     public class Shootable : MonoBehaviour
     {
+        [SerializeField] private MergeInfoContainer _mergeInfoContainer;
         [SerializeField] private Weapon[] _weapons;
         [SerializeField] private PlayerInput _playerInput;
 
-        private int _weaponIndex = 0;
+        private int _weaponIndex = -1;
 
 
 
@@ -18,12 +19,21 @@ namespace FPS
         {
             _playerInput.TapStart += StartShooting;
             _playerInput.TapEnded += StopShoot;
+            GameManager.Instance.GameplayStarted += SetUpWeapon;
         }
         private void OnDisable()
         {
             _playerInput.TapStart -= StartShooting;
             _playerInput.TapEnded -= StopShoot;
+            GameManager.Instance.GameplayStarted -= SetUpWeapon;
         }
+
+        private void SetUpWeapon()
+        {
+            _weaponIndex = _mergeInfoContainer.ChoosedWeaponIndex;
+            _weapons[_weaponIndex].gameObject.SetActive(true);
+        }
+
         private void StartShooting()
         {
             StartCoroutine(StartingShooting());

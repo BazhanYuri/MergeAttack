@@ -23,10 +23,24 @@ namespace FPS
         public event Action TapEnded;
 
 
+        private bool _isCanControl = false;
 
+
+        private void OnEnable()
+        {
+            GameManager.Instance.GameplayStarted += EnableControl;
+        }
+        private void OnDisable()
+        {
+            GameManager.Instance.GameplayStarted -= EnableControl;
+        }
 
         private void Update()
         {
+            if (_isCanControl == false)
+            {
+                return;
+            }
             CheckInput();
         }
         private void CheckInput()
@@ -69,6 +83,13 @@ namespace FPS
 
             _player.transform.rotation = Quaternion.Euler(_angleX, _angleY, 0.0f);
         }
+
+        private void EnableControl()
+        {
+            _isCanControl = true;
+        }
+                
     }
+    
 }
 

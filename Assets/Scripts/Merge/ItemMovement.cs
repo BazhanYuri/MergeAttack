@@ -11,10 +11,16 @@ namespace Merge
         private int _currentXPos;
         private int _currentZPos;
 
+        private bool _isMoving = false;
 
         public void StartMoveItem()
         {
+            if (_isMoving == true)
+            {
+                return;
+            }
             _item.transform.GetChild(0).DOLocalMoveZ(-0.5f, 0.2f);
+            _isMoving = true;
         }
         public void MoveItem(Touch touch)
         {
@@ -42,6 +48,7 @@ namespace Merge
         private void EndMoveItem()
         {
             _item.transform.GetChild(0).DOLocalMoveZ(0, 0.3f);
+            _isMoving = false;
         }
         private void ClearCurrentCell()
         {

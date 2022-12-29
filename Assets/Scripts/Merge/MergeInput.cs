@@ -6,6 +6,8 @@ namespace Merge
 {
     public class MergeInput : MonoBehaviour
     {
+        [SerializeField] private MergeInfoContainer _mergeInfoContainer;
+
         public event Action StartSlide;
         public event Action<Item> ItemSelected;
 
@@ -14,9 +16,25 @@ namespace Merge
         private Item _slidedItem;
 
         private bool _isItemDetected;
+        private bool _isCanControll = true;
+
+
+        private void OnEnable()
+        {
+            GameManager.Instance.GameplayStarted += DisableControl;
+        }
+        private void OnDisable()
+        {
+            GameManager.Instance.GameplayStarted -= DisableControl;
+        }
 
         private void Update()
         {
+            if (_isCanControll == false)
+            {
+                return;
+            }
+
             CheckSlide();
         }
 
@@ -34,6 +52,10 @@ namespace Merge
                         _isItemDetected = Detect(touch.position);
                         break;
                     case TouchPhase.Moved:
+                        if ((_tapPosition - touch.position).magnitude < 20)
+                        {
+                            return;
+                        }
                         if (_isItemDetected == false)
                         {
                             return;
@@ -41,7 +63,11 @@ namespace Merge
                         MoveSelectedItem(touch);
                         break;
                     case TouchPhase.Ended:
-
+                        if ((_tapPosition - touch.position).magnitude < 20)
+                        {
+                            CheckTapOnItem(touch.position);
+                            return;
+                        }
                         if (_isItemDetected == false)
                         {
                             return;
@@ -65,7 +91,6 @@ namespace Merge
                 {
                     _slidedItem = collideType.Root.GetComponent<Item>();
                     _tapPosition = touchPos;
-                    _slidedItem.ItemMovement.StartMoveItem();
                     return true;
                 }
             }
@@ -75,6 +100,8 @@ namespace Merge
 
         private void MoveSelectedItem(Touch touch)
         {
+            _slidedItem.ItemMovement.StartMoveItem();
+
             _slidedItem.ItemMovement.MoveItem(touch);
         }
         
@@ -126,10 +153,40 @@ namespace Merge
                     }
                 }
             }
-            
-
 
             _slidedItem.ItemMovement.MoveBack();
+        }
+
+        private void CheckTapOnItem(Vector2 touchPos)
+        {
+            if (RayCheck(touchPos).TryGetComponent(out ColliderTypeDetect collideType))
+            {
+                if (collideType.Type == GameObjectType.Item)
+                {
+                    Item item = collideType.Root.GetComponent<Item>();
+                    int index = item.ItemMerge.Index;
+
+                    switch (item.ItemType)
+                    {
+                        case ItemType.Firearms:
+                            _mergeInfoContainer.SetChoosedWeaponIndex(index);
+                            break;
+                        case ItemType.Explosives:
+                            _mergeInfoContainer.SetExplosivnesIndex(index);
+                            break;
+                        case ItemType.Ammo:
+                            _mergeInfoContainer.SetChoosedAmmoIndex(index);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void DisableControl()
+        {
+            _isCanControll = false;
         }
     }
 }
