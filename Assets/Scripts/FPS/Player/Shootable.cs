@@ -15,7 +15,7 @@ namespace FPS
 
 
         private bool _isShooting;
-        private void OnEnable()
+        private void Start()
         {
             _playerInput.TapStart += StartShooting;
             _playerInput.TapEnded += StopShoot;

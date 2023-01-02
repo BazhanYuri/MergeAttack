@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private Transform _mergeStage;
+
     public event Action GameplayStarted;
 
 
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     public void StartGameplay()
     {
         GameplayStarted?.Invoke();
+        _mergeStage.gameObject.SetActive(false);
     }
 
 }

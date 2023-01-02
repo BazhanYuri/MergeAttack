@@ -9,17 +9,14 @@ namespace Merge
         [System.Serializable]
         public struct rowData
         {
-            public Transform[] row;
+            public Cell[] row;
         }
 
         public rowData[] rows;
     }
 
-    public class Grid : MonoBehaviour
-    {
-        [SerializeField] private TileData _grid;
-        public TileData Cells { get => _grid; }
-    }
+    
+        
 }
 
 

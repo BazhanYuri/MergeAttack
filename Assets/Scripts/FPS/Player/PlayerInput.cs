@@ -26,7 +26,7 @@ namespace FPS
         private bool _isCanControl = false;
 
 
-        private void OnEnable()
+        private void Start()
         {
             GameManager.Instance.GameplayStarted += EnableControl;
         }
