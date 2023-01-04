@@ -7,7 +7,7 @@ public class MoneyManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _moneyCountText;
 
-    private int _moneyCount = 100_000;
+    private int _moneyCount = 100_000_0;
 
     public int MoneyCount { get => _moneyCount;}
 
@@ -31,6 +31,6 @@ public class MoneyManager : MonoBehaviour
     }
     private void UpdateMoney()
     {
-        _moneyCountText.text = _moneyCount.ToString();
+        _moneyCountText.text = _moneyCount + " $";
     }
 }

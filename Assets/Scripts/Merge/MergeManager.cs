@@ -12,6 +12,8 @@ namespace Merge
         [SerializeField] private Item _ammoPrefab;
         [SerializeField] private Item _explosinablePrefab;
 
+        [SerializeField, Range(0, 100)] private int _ammoRandomPercantage;
+
         [SerializeField] private BuyButton _weaponBuy;
         [SerializeField] private BuyButton _ammoBuy;
 
@@ -40,6 +42,7 @@ namespace Merge
         }
         public void TryBuyWeapon()
         {
+            UpdateButtonStates();
             if (_isCanBuyWeapon == true)
             {
                 IntantiateItem(_weponPrefab);
@@ -49,13 +52,27 @@ namespace Merge
         }
         public void TryBuyAmmunation()
         {
-            if (_isCanBuyWeapon == true)
+            UpdateButtonStates();
+            if (_isCanBuyAmmo == true)
             {
-                IntantiateItem(_ammoPrefab);
+                if (ChooseRandomlyWeaponAmmo() == true)
+                {
+                    IntantiateItem(_ammoPrefab);
+                }
+                else
+                {
+                    IntantiateItem(_explosinablePrefab);
+                }
                 MoneyManager.Instance.TakeMoney(_ammoBuy.Price);
                 UpdateButtonStates();
             }
         }
+        private bool ChooseRandomlyWeaponAmmo()
+        {
+            bool isAmmo = new System.Random().Next(0, 100) < _ammoRandomPercantage;
+
+            return isAmmo;
+        }    
 
         private void UpdateButtonStates()
         {

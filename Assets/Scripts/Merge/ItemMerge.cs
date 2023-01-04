@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 
 namespace Merge
@@ -17,8 +18,7 @@ namespace Merge
         {
             Destroy(item.gameObject);
             _index++;
-
-            ChangeVisual(_index);
+            _skins[_index - 1].DOScale(Vector3.zero, 0.2f).OnComplete(() => ChangeVisual(_index));
         }
 
         private void ChangeVisual(int index)
@@ -34,6 +34,8 @@ namespace Merge
                     _skins[i].gameObject.SetActive(false);
                 }
             }
+            _skins[_index].localScale = Vector3.zero;
+            _skins[_index].DOScale(Vector3.one, 0.3f);
         }
     }
 }
