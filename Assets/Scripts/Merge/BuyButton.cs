@@ -14,11 +14,9 @@ namespace Merge
 
         public void SetAsActive()
         {
-            print("Active");
         }
         public void SetAsInactive()
         {
-            print("Inactive");
         }
 
 

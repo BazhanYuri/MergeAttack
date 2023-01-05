@@ -147,6 +147,11 @@ namespace Merge
                         _slidedItem.ItemMovement.MoveToCell(cell);
                         return;
                     }
+                    if (_slidedItem.ItemMerge.IsMax() == true || cell.CurrentItem.ItemMerge.IsMax())
+                    {
+                        _slidedItem.ItemMovement.MoveBack();
+                        return;
+                    }
                     else if (cell.CurrentItem.ItemMerge.Index == _slidedItem.ItemMerge.Index && cell.CurrentItem.ItemType == _slidedItem.ItemType)
                     {
                         cell.CurrentItem.ItemMerge.Merge(_slidedItem);
@@ -157,6 +162,12 @@ namespace Merge
             _slidedItem.ItemMovement.MoveBack();
         }
 
+
+
+        private Item _choosedWeapon;
+        private Item _choosedAmmo;
+        private Item _choosedExplo;
+
         private void CheckTapOnItem(Vector2 touchPos)
         {
             if (RayCheck(touchPos).TryGetComponent(out ColliderTypeDetect collideType))
@@ -166,6 +177,35 @@ namespace Merge
                     Item item = collideType.Root.GetComponent<Item>();
                     int index = item.ItemMerge.Index;
 
+                    if (item.IsChoosed == false)
+                    {
+                        item.Canvas.ChooseItem();
+
+                        switch (item.ItemType)
+                        {
+                            case ItemType.Firearms:
+                                CheckIsTouchAnother(_choosedWeapon, item);
+                                _choosedWeapon = item;
+                                break;
+                            case ItemType.Explosives:
+                                CheckIsTouchAnother(_choosedExplo, item);
+                                _choosedExplo = item;
+                                break;
+                            case ItemType.Ammo:
+                                CheckIsTouchAnother(_choosedAmmo, item);
+                                _choosedAmmo = item;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        item.Canvas.UnchooseItem();
+                        index = -1;
+                    }
+
+                    item.IsChoosed = !item.IsChoosed;
                     switch (item.ItemType)
                     {
                         case ItemType.Firearms:
@@ -181,6 +221,18 @@ namespace Merge
                             break;
                     }
                 }
+            }
+        }
+        private void CheckIsTouchAnother(Item item, Item temp)
+        {
+            if (item == null)
+            {
+                return;
+            }
+            if (item.GetHashCode() != temp.GetHashCode())
+            {
+                item.Canvas.UnchooseItem();
+                item.IsChoosed = false;
             }
         }
 

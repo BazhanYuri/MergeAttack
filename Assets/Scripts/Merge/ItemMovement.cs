@@ -19,6 +19,7 @@ namespace Merge
             {
                 return;
             }
+            HideCanvas();
             _item.transform.GetChild(0).DOLocalMoveZ(-0.5f, 0.2f);
             _isMoving = true;
         }
@@ -49,6 +50,7 @@ namespace Merge
         {
             _item.transform.GetChild(0).DOLocalMoveZ(0, 0.3f);
             _isMoving = false;
+            ShowCanvas();
         }
         private void ClearCurrentCell()
         {
@@ -58,6 +60,14 @@ namespace Merge
             }
             _item.CurrentCell.ClearItem();
             _item.CurrentCell = null;
+        }
+        private void HideCanvas()
+        {
+            _item.Canvas.HideCanvas();
+        }
+        private void ShowCanvas()
+        {
+            _item.Canvas.ShowCanvas();
         }
     }
 }

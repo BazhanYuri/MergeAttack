@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 90d4fb2384757994fb7ceac49433371e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 90d4fb2384757994fb7ceac49433371e, type: 3}
       propertyPath: m_LocalScale.x
@@ -76,6 +76,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
+      propertyPath: _choosedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
+      propertyPath: _choosedColor.b
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
+      propertyPath: _choosedColor.g
+      value: 0.8289814
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
+      propertyPath: _choosedColor.r
+      value: 0.9137255
+      objectReference: {fileID: 0}
     - target: {fileID: 1615166247783800177, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
       propertyPath: m_Name
       value: ExplosinableItem
@@ -139,6 +155,10 @@ PrefabInstance:
     - target: {fileID: 5791366091768655513, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848755561387830306, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
+      propertyPath: _maxIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8210877133496255901, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
       propertyPath: m_IsActive

@@ -6,14 +6,20 @@ namespace Merge
 {
     public class ItemMerge : MonoBehaviour
     {
+        [SerializeField] private Item _item;
         [SerializeField] private Transform[] _skins;
         [SerializeField] private int _maxIndex;
+
 
         private int _index = 0;
 
         public int Index { get => _index; }
         public int MaxIndex { get => _maxIndex;}
 
+        public bool IsMax()
+        {
+            return Index == MaxIndex;
+        }
         public void Merge(Item item)
         {
             Destroy(item.gameObject);

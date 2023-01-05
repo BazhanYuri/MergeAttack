@@ -3672,7 +3672,7 @@ MonoBehaviour:
   _weponPrefab: {fileID: 9217884056721224233, guid: 7abb0d2e117a167498243be78a1a373e, type: 3}
   _ammoPrefab: {fileID: 9217884056721224233, guid: fa14863bb322d614bb1be75f41f68367, type: 3}
   _explosinablePrefab: {fileID: 9217884056721224233, guid: 535975f7498b06542bd1832254582557, type: 3}
-  _ammoRandomPercantage: 50
+  _ammoRandomPercantage: 75
   _weaponBuy: {fileID: 1563558594}
   _ammoBuy: {fileID: 1110291476}
 --- !u!1001 &1137867555

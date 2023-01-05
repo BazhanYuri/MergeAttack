@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Data\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Merge\ItemUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
