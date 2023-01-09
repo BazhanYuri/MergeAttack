@@ -8,15 +8,8 @@ public class MergeUiHidder : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
-        _startButton.onClick.AddListener(HideUI);
-    }
-    private void OnDisable()
-    {
-        _startButton.onClick.RemoveListener(HideUI);
-    }
-    private void HideUI()
+    
+    public void HideUI()
     {
         gameObject.SetActive(false);
     }

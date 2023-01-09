@@ -1217,7 +1217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
       propertyPath: _choosedColor.a
-      value: 1
+      value: 0.7490196
       objectReference: {fileID: 0}
     - target: {fileID: 1003212350693251461, guid: f1fef61d2e81dda4689ec4e3cb274643, type: 3}
       propertyPath: _choosedColor.b
@@ -1434,6 +1434,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -135
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 45eff474da3648b47bb29dde3b04b439, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 35831ea964018bb4cbc05f09d4527e7d, type: 2}
+    - target: {fileID: -4362964681968891630, guid: 45eff474da3648b47bb29dde3b04b439, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 935583a5c178f3149b3c22e7ab71df12, type: 2}
     - target: {fileID: -1900820803034442434, guid: 45eff474da3648b47bb29dde3b04b439, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

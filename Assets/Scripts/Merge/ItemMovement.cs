@@ -23,11 +23,21 @@ namespace Merge
             _item.transform.GetChild(0).DOLocalMoveZ(-0.5f, 0.2f);
             _isMoving = true;
         }
-        public void MoveItem(Touch touch)
+        public void MoveItem(Touch touch)   
         {
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+            Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 1f);
+            Vector3 screenTouch = screenCenter + new Vector3(touchDeltaPosition.x, touchDeltaPosition.y, 0f);
+
+            Vector3 worldCenterPosition = Camera.main.ScreenToWorldPoint(screenCenter);
+            Vector3 worldTouchPosition = Camera.main.ScreenToWorldPoint(screenTouch);
+
+            Vector3 worldDeltaPosition = worldTouchPosition - worldCenterPosition;
+
             _item.transform.localPosition = new Vector3(
-                   _item.transform.localPosition.x + touch.deltaPosition.x * 0.0035f,
-                   _item.transform.localPosition.y + touch.deltaPosition.y * 0.0035f,
+                   _item.transform.localPosition.x + worldDeltaPosition.x * 7, 
+                   _item.transform.localPosition.y + worldDeltaPosition.y * 7,
                    _item.transform.localPosition.z);
         }
         public void MoveToCell(Cell cell)

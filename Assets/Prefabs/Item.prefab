@@ -118,6 +118,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6955175832463382728}
+  - {fileID: 5182505847056090430}
   - {fileID: 8906496109695011946}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -281,12 +282,12 @@ RectTransform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 2923282917718070241}
-  m_Father: {fileID: 6955175832463382728}
-  m_RootOrder: 6
+  m_Father: {fileID: 5791366091768655513}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.286}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2596481765753325098
@@ -519,7 +520,6 @@ Transform:
   - {fileID: 321001143260988780}
   - {fileID: 518900384707246570}
   - {fileID: 3427581178915840502}
-  - {fileID: 5182505847056090430}
   m_Father: {fileID: 5791366091768655513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -611,7 +611,7 @@ Transform:
   - {fileID: 3223597619112296493}
   - {fileID: 1453665157922870331}
   m_Father: {fileID: 5791366091768655513}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8971911912990794695
 GameObject:
@@ -658,4 +658,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 2596481765753325098}
   _corners: {fileID: 7359466056362788572}
-  _choosedColor: {r: 0.9150943, g: 0.3401388, b: 0.3401388, a: 0}
+  _choosedColor: {r: 0.9150943, g: 0.3401388, b: 0.3401388, a: 0.8039216}

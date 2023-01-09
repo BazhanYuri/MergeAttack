@@ -16,10 +16,12 @@ namespace Merge
         public void ChooseItem()
         {
             _corners.color = _choosedColor;
+            _corners.pixelsPerUnitMultiplier = 0.3f;
         }
         public void UnchooseItem()
         {
             _corners.color = _standartColor;
+            _corners.pixelsPerUnitMultiplier = 0.4f;
         }
 
         public void HideCanvas()

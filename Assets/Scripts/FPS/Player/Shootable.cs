@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 
 namespace FPS
@@ -8,10 +9,15 @@ namespace FPS
     {
         [SerializeField] private MergeInfoContainer _mergeInfoContainer;
         [SerializeField] private Weapon[] _weapons;
+        [SerializeField] private BulletsData _bulletsData;
+
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private TextMeshProUGUI _ammoCountText;
 
         private int _weaponIndex = -1;
 
+
+        private int _ammoCount;
 
 
         private bool _isShooting;
@@ -32,10 +38,17 @@ namespace FPS
         {
             _weaponIndex = _mergeInfoContainer.ChoosedWeaponIndex;
             _weapons[_weaponIndex].gameObject.SetActive(true);
+
+            _ammoCount = _bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex];
+            UpdateAmmoCountUI();
         }
 
         private void StartShooting()
         {
+            if (_ammoCount <= 0)
+            {
+                return;
+            }
             StartCoroutine(StartingShooting());
         }
         private IEnumerator StartingShooting()
@@ -43,7 +56,7 @@ namespace FPS
             yield return new WaitForSeconds(_weapons[_weaponIndex].StartShootDelay);
             _isShooting = true;
 
-            while (true)
+            while (_ammoCount > 0)
             {
                 Shoot();
                 yield return new WaitForSeconds(_weapons[_weaponIndex].ShootDelay);
@@ -63,11 +76,21 @@ namespace FPS
 
 
             _weapons[_weaponIndex].Animator.SetTrigger("shoot");
+
+            _ammoCount--;
+            UpdateAmmoCountUI();
+
+            CameraShaker.Instance.ShakeCamera(0.04f, 0.1f, _weapons[_weaponIndex].ShootDelay * 0.8f);
         }
         private void StopShoot()
         {
             _isShooting = false;
             StopAllCoroutines();
+        }
+
+        private void UpdateAmmoCountUI()
+        {
+            _ammoCountText.text = _ammoCount.ToString();
         }
     }
 }
