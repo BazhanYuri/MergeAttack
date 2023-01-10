@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Merge\Alert.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\UIButton_ShowNext.cs" />
     <Compile Include="Assets\Scripts\Merge\BuyButton.cs" />
+    <Compile Include="Assets\Scripts\FPS\Camera\CameraShaker.cs" />
     <Compile Include="Assets\Scripts\FPS\Damagable.cs" />
     <Compile Include="Assets\Scripts\FPS\DamagablePart.cs" />
     <Compile Include="Assets\Scripts\GameplayStarter.cs" />
@@ -70,10 +71,11 @@
     <Compile Include="Assets\Scripts\FPS\Player\Shootable.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\FPS\Enemy\SoldierDead.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierDead.cs" />
     <Compile Include="Assets\Scripts\MoneyManager.cs" />
     <Compile Include="Assets\Scripts\ColliderTypeDetect.cs" />
-    <Compile Include="Assets\Scripts\FPS\Enemy\SoldierMovement.cs" />
+    <Compile Include="Assets\Scripts\__DATA\BulletsData.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierMovement.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\FreeCam.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\SuperCamera.cs" />
     <Compile Include="Assets\Scripts\Merge\ItemMovement.cs" />
@@ -90,8 +92,11 @@
     <Compile Include="Assets\Scripts\Merge\ItemUI.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Data\Weapon.cs" />
-    <Compile Include="Assets\Scripts\__DATA\BulletsData.cs" />
-    <Compile Include="Assets\Scripts\FPS\Camera\CameraShaker.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\Soldier.cs" />
+    <Compile Include="Assets\Scripts\__DATA\LevelsInfo.cs" />
+    <Compile Include="Assets\Scripts\__DATA\LevelInfo.cs" />
+    <Compile Include="Assets\Scripts\FPS\SpawnPoints.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\HitPointer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -790,8 +795,14 @@
     <Reference Include="Unity.Recorder.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
@@ -834,12 +845,6 @@
     </Reference>
     <Reference Include="Unity.Recorder">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

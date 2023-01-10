@@ -1267,7 +1267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 34812415164178751}
-  - component: {fileID: 6525948482857015426}
+  - component: {fileID: 1604924067861983577}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -1291,7 +1291,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6525948482857015426
+--- !u!114 &1604924067861983577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1300,7 +1300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3165860833193543520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99823d08aa5d79a48b17546a307f4f97, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bd8ca5248ccee14c940e2ace563600d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3174336411009912947
@@ -3757,4 +3757,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagable: {fileID: 5254220147174553989}
-  _enemy: {fileID: 6525948482857015426}
+  _enemy: {fileID: 1604924067861983577}

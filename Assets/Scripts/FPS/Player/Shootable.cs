@@ -12,6 +12,7 @@ namespace FPS
         [SerializeField] private BulletsData _bulletsData;
 
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private HitPointer _hitPointerUI;
         [SerializeField] private TextMeshProUGUI _ammoCountText;
 
         private int _weaponIndex = -1;
@@ -71,6 +72,7 @@ namespace FPS
                 if (hit.collider.TryGetComponent(out DamagablePart damagable))
                 {
                     damagable.GetDamage(_weapons[_weaponIndex].Damage);
+                    ShowPointer(hit.point);
                 }
             }
 
@@ -91,6 +93,12 @@ namespace FPS
         private void UpdateAmmoCountUI()
         {
             _ammoCountText.text = _ammoCount.ToString();
+        }
+        private void ShowPointer(Vector3 position)
+        {
+            HitPointer hitPointer = Instantiate(_hitPointerUI);
+            hitPointer.transform.position = position;
+            hitPointer.transform.LookAt(Camera.main.transform);
         }
     }
 }

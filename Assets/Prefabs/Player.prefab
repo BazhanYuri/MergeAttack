@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: -2.95, z: -12.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6549241926158064417}
@@ -1557,6 +1557,7 @@ MonoBehaviour:
   - {fileID: 2721173828935078559}
   _bulletsData: {fileID: 11400000, guid: a7c423a69ac0d77459a370764b1bb19c, type: 2}
   _playerInput: {fileID: 2227936967319442230}
+  _hitPointerUI: {fileID: 1461894573944531096, guid: c3b2c8a949c74e24a8e5bfc107bddf5e, type: 3}
   _ammoCountText: {fileID: 0}
 --- !u!1 &8643266642858651445
 GameObject:
