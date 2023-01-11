@@ -19,6 +19,7 @@ namespace FPS
 
         private float _damageIndex;
 
+        public PartType PartType { get => _partType;}
 
         public void GetDamage(float damage)
         {

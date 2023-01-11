@@ -12,6 +12,7 @@ namespace FPS
         [SerializeField] private BulletsData _bulletsData;
 
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private ShootHitEffect _shootHitEffectPrefab;
         [SerializeField] private HitPointer _hitPointerUI;
         [SerializeField] private TextMeshProUGUI _ammoCountText;
 
@@ -65,15 +66,28 @@ namespace FPS
         }
         private void Shoot()
         {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+            ShootFireLightParticle();
+            Ray ray = Camera.main.ViewportPointToRay(GetAccuracy());
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.TryGetComponent(out DamagablePart damagable))
                 {
                     damagable.GetDamage(_weapons[_weaponIndex].Damage);
                     ShowPointer(hit.point);
+
+                    if (damagable.PartType == PartType.Head)
+                    {
+                        SpawnHitEffect(hit.point, HitType.Head);
+                    }
+                    else
+                    {
+                        SpawnHitEffect(hit.point, HitType.Body);
+                    }
                 }
+
+                
             }
 
 
@@ -89,6 +103,13 @@ namespace FPS
             _isShooting = false;
             StopAllCoroutines();
         }
+        private Vector3 GetAccuracy()
+        {
+            float randomAngle;
+            randomAngle = Random.Range(0f, 0.1f - (_weapons[_weaponIndex].PercentageOfAccuracy / 1000f));
+
+            return new Vector3(0.5F - randomAngle, 0.5F + randomAngle, 0);
+        }
 
         private void UpdateAmmoCountUI()
         {
@@ -96,9 +117,19 @@ namespace FPS
         }
         private void ShowPointer(Vector3 position)
         {
-            HitPointer hitPointer = Instantiate(_hitPointerUI);
-            hitPointer.transform.position = position;
-            hitPointer.transform.LookAt(Camera.main.transform);
+            _hitPointerUI.ShowPointer(position);
+        }
+        private void ShootFireLightParticle()
+        {
+            ParticleSystem particleSystem = Instantiate(_weapons[_weaponIndex].ShootParticle);
+            particleSystem.transform.position = _weapons[_weaponIndex].ShootPoint.position;
+            particleSystem.transform.parent = _weapons[_weaponIndex].ShootPoint;
+        }
+        private void SpawnHitEffect(Vector3 position, HitType hitType)
+        {
+            ShootHitEffect shootHitEffect = Instantiate(_shootHitEffectPrefab);
+            shootHitEffect.transform.position = position;
+            shootHitEffect.ChooseEffect(hitType);
         }
     }
 }
