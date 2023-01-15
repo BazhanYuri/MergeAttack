@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class LevelsInfo : ScriptableObject
 {
-    public LevelInfo[] _levelInfos;
+    public LevelInfo[] LevelInfos;
 }

@@ -9,4 +9,6 @@ public class LevelInfo : ScriptableObject
     public int DronsCount;
     public int JahernautsCount;
     public int CoptersCount;
+    public float MinTimeToSpawn;
+    public float MaxTimeToSpawn;
 }

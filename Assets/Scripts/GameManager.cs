@@ -7,12 +7,17 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Transform _mergeStage;
 
+    private int _currentLevel;
+
+    public int CurrentLevel { get => _currentLevel; }
+
     public event Action GameplayStarted;
 
 
 
     private void Awake()
     {
+        _currentLevel = PlayerPrefs.GetInt(Prefs.CurrentLevel, 0);
         Instance = this;
     }
 
