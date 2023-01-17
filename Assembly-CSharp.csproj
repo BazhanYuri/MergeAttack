@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
+    <Compile Include="Assets\Scripts\FPS\Player\Explosinable.cs" />
     <Compile Include="Assets\Scripts\AnyAnimationStart.cs" />
     <Compile Include="Assets\Scripts\Merge\Alert.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\UIButton_ShowNext.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Scripts\FPS\Camera\CameraShaker.cs" />
     <Compile Include="Assets\Scripts\Effects\ShootHitEffect.cs" />
+    <Compile Include="Assets\Scripts\FPS\Player\Arsenal.cs" />
     <Compile Include="Assets\Scripts\FPS\Damagable.cs" />
     <Compile Include="Assets\Scripts\FPS\DamagablePart.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
@@ -82,6 +84,8 @@
     <Compile Include="Assets\Scripts\FPS\UI\HitPointer.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\Scripts\FPS\Player\ExplosivleThrow.cs" />
+    <Compile Include="Assets\Scripts\Merge\StartTableEnemiesCount.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierDead.cs" />
     <Compile Include="Assets\Scripts\MoneyManager.cs" />
@@ -93,6 +97,7 @@
     <Compile Include="Assets\Scripts\__DATA\BulletsData.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierMovement.cs" />
+    <Compile Include="Assets\Scripts\Prefs.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\FreeCam.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\SuperCamera.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
@@ -108,17 +113,18 @@
     <Compile Include="Assets\Scripts\FPS\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Player.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\GranateChooser.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\Merge\Item.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\FreeCamera.cs" />
     <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
     <Compile Include="Assets\Scripts\Merge\ItemUI.cs" />
+    <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Data\Weapon.cs" />
     <Compile Include="Assets\Scripts\FPS\SpawnPoints.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Scripts\LevelManager.cs" />
-    <Compile Include="Assets\Scripts\Prefs.cs" />
+    <Compile Include="Assets\Scripts\FPS\Player\ExploInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -844,20 +850,8 @@
     <Reference Include="Unity.Recorder.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Recorder.Base">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Base.dll</HintPath>
@@ -868,20 +862,17 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.DeviceSimulator.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.DeviceSimulator.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -892,6 +883,21 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.DeviceSimulator.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.DeviceSimulator.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Recorder">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
     </Reference>
@@ -901,9 +907,9 @@
       <Project>{8424519D-BE2C-541E-4C7A-BD4AAA36D9A8}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
-    <ProjectReference Include="ToonyColorsPro.Runtime.csproj">
-      <Project>{0AE641FE-3665-5799-D5CB-FE222433B2C9}</Project>
-      <Name>ToonyColorsPro.Runtime</Name>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
+      <Project>{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}</Project>
+      <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
     </ProjectReference>
     <ProjectReference Include="KinoBloom.Runtime.csproj">
       <Project>{40A9FC8D-61B6-EADA-F681-66043444AF95}</Project>
@@ -913,13 +919,25 @@
       <Project>{94408E09-18E2-3D32-B669-2058466EB58D}</Project>
       <Name>CFXREditor</Name>
     </ProjectReference>
-    <ProjectReference Include="CFXR.WelcomeScreen.csproj">
-      <Project>{18016C66-60B3-0B55-8018-68A3C7CB5B40}</Project>
-      <Name>CFXR.WelcomeScreen</Name>
-    </ProjectReference>
     <ProjectReference Include="CFXRDemo.csproj">
       <Project>{B86EAC04-EFF1-8081-9D10-06571283BA8C}</Project>
       <Name>CFXRDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Editor.csproj">
+      <Project>{BEF2343C-D70A-5EEB-4375-E754FFED11F8}</Project>
+      <Name>Unity.PlayerPrefsEditor.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="ToonyColorsPro.Runtime.csproj">
+      <Project>{0AE641FE-3665-5799-D5CB-FE222433B2C9}</Project>
+      <Name>ToonyColorsPro.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Samples.SampleScene.csproj">
+      <Project>{8D3AB9D9-8883-B903-6C7F-AB66DF1FCF93}</Project>
+      <Name>Unity.PlayerPrefsEditor.Samples.SampleScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="CFXR.WelcomeScreen.csproj">
+      <Project>{18016C66-60B3-0B55-8018-68A3C7CB5B40}</Project>
+      <Name>CFXR.WelcomeScreen</Name>
     </ProjectReference>
     <ProjectReference Include="CFXRRuntime.csproj">
       <Project>{8352FA63-5B16-674F-A2A6-09444A7C92F6}</Project>
@@ -932,18 +950,6 @@
     <ProjectReference Include="ToonyColorsPro2.Demo.csproj">
       <Project>{73936199-CCBF-49BB-3065-A945C813196D}</Project>
       <Name>ToonyColorsPro2.Demo</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.PlayerPrefsEditor.Editor.csproj">
-      <Project>{BEF2343C-D70A-5EEB-4375-E754FFED11F8}</Project>
-      <Name>Unity.PlayerPrefsEditor.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.PlayerPrefsEditor.Samples.SampleScene.csproj">
-      <Project>{8D3AB9D9-8883-B903-6C7F-AB66DF1FCF93}</Project>
-      <Name>Unity.PlayerPrefsEditor.Samples.SampleScene</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
-      <Project>{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}</Project>
-      <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

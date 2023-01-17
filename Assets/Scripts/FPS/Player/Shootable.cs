@@ -11,6 +11,9 @@ namespace FPS
         [SerializeField] private Weapon[] _weapons;
         [SerializeField] private BulletsData _bulletsData;
 
+        [SerializeField] private Arsenal _arsenal;
+
+
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private ShootHitEffect _shootHitEffectPrefab;
         [SerializeField] private HitPointer _hitPointerUI;
@@ -48,6 +51,10 @@ namespace FPS
         private void StartShooting()
         {
             if (_ammoCount <= 0)
+            {
+                return;
+            }
+            if (_arsenal.CurrentWeaponType != WeaponType.Weapon)
             {
                 return;
             }

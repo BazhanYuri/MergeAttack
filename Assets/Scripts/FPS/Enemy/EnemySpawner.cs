@@ -69,7 +69,7 @@ namespace FPS
                 }
                 else
                 {
-                    yield return new null;
+                    yield return null;
                 }
 
             }
