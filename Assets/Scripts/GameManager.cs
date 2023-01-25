@@ -1,19 +1,40 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using FPS;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     [SerializeField] private CanvasGroup _FPSUI;
+    [SerializeField] private CanvasGroup _levelCompletedUI;
+
     [SerializeField] private Transform _mergeStage;
+    [SerializeField] private EnemiesKilledIndicator _killedIndicator;
 
     private int _currentLevel;
+    private int _countOfAllEnemies;
 
     public int CurrentLevel { get => _currentLevel; }
+    public int CountOfAllEnemies { get => _countOfAllEnemies; }
 
     public event Action GameplayStarted;
+    public static event Action LevelCompleted;
+
+
+
+
+
+    private void OnEnable()
+    {
+        EnemyDead.DeadEnemy += CheckIsLevelPassed;
+    }
+    private void OnDisable()
+    {
+        EnemyDead.DeadEnemy -= CheckIsLevelPassed;
+    }
 
 
 
@@ -23,22 +44,59 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+
+    public void NextLevel()
+    {
+        _currentLevel++;
+        PlayerPrefs.SetInt(Prefs.CurrentLevel, _currentLevel);
+        SceneManager.LoadScene(0);
+    }
+    public void SetCountOfAllEnemies(int count)
+    {
+        _countOfAllEnemies = count;
+        _killedIndicator.SetUpSlider(count);
+    }
     public void StartGameplay()
     {
         GameplayStarted?.Invoke();
         _mergeStage.gameObject.SetActive(false);
 
-        StartCoroutine(ShowFPSUI());
+        StartCoroutine(ShowUI(_FPSUI));
     }
 
-    private IEnumerator ShowFPSUI()
+    private IEnumerator ShowUI(CanvasGroup canvasGroup)
     {
         for (int i = 0; i < 100; i++)
         {
-            yield return new WaitForSeconds(0.005f);
-            _FPSUI.alpha = i / 100f;
+            yield return new WaitForSecondsRealtime(0.005f);
+            canvasGroup.alpha = i / 100f;
         }
-        _FPSUI.interactable = true;
-        _FPSUI.blocksRaycasts = true;
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+    }
+    private IEnumerator HideUI(CanvasGroup canvasGroup)
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            yield return new WaitForSecondsRealtime(0.005f);
+            canvasGroup.alpha = 1 - (i / 100f);
+        }
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+    private void CheckIsLevelPassed()
+    {
+        _countOfAllEnemies--;
+        if (_countOfAllEnemies <= 0)
+        {
+            StartCoroutine(ShowCompletedUI());
+            
+            LevelCompleted?.Invoke();
+        }
+    }
+    private IEnumerator ShowCompletedUI()
+    {
+        yield return StartCoroutine(HideUI(_FPSUI));
+        StartCoroutine(ShowUI(_levelCompletedUI));
     }
 }

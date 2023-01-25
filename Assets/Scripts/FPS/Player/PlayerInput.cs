@@ -29,10 +29,12 @@ namespace FPS
         private void Start()
         {
             GameManager.Instance.GameplayStarted += EnableControl;
+            GameManager.LevelCompleted += DisableControl;
         }
         private void OnDisable()
         {
             GameManager.Instance.GameplayStarted -= EnableControl;
+            GameManager.LevelCompleted -= DisableControl;
         }
 
         private void Update()
@@ -88,7 +90,11 @@ namespace FPS
         {
             _isCanControl = true;
         }
-                
+        private void DisableControl()
+        {
+            _isCanControl = false;
+        }
+
     }
     
 }

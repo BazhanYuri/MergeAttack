@@ -10,7 +10,14 @@ namespace FPS
 
 
 
-
+        public void StopMoving()
+        {
+            _meshAgent.isStopped = true;
+        }
+        public void StartMoving()
+        {
+            _meshAgent.isStopped = false;
+        }
         public void SetDestination(Vector3 position)
         {
             _meshAgent.SetDestination(position);
@@ -18,7 +25,7 @@ namespace FPS
 
         private void Start()
         {
-            SetDestination(Vector3.zero);
+            SetDestination(new Vector3(0, 0, -12.64f));
         }
     }
 

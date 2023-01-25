@@ -11,10 +11,10 @@ namespace FPS
         [SerializeField] private ExploInfo[] _exploInfos;
 
         [SerializeField] private Rigidbody _rigidbody;
-        [SerializeField] private ParticleSystem _particle;
 
 
-        private int _currentIndex;
+        private ExploInfo _currentInfo;
+        
 
 
         public Rigidbody Rigidbody { get => _rigidbody; }
@@ -29,18 +29,29 @@ namespace FPS
 
         public void SetUpExplo(int index)
         {
-            _currentIndex = index;
-            _exploInfos[_currentIndex].gameObject.SetActive(true);
+            _currentInfo = _exploInfos[index];
+            _currentInfo.gameObject.SetActive(true);
         }
 
         private IEnumerator StartExpo()
         {
-            yield return new WaitForSeconds(_exploInfos[_currentIndex].TimeToExplode);
+            yield return new WaitForSeconds(_currentInfo.TimeToExplode);
             Explode();
         }
         private void Explode()
-        {
-            Instantiate(_particle).transform.position = transform.position;
+        { 
+            Instantiate(_currentInfo.ExplosionParticle).transform.position = transform.position;
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _currentInfo.ExplosinableRadius);
+
+            foreach (Collider hitCollider in hitColliders)
+            {
+                if (hitCollider.TryGetComponent(out DamagablePart damagable))
+                {
+                    damagable.GetDamage(_currentInfo.Damage);
+                }
+            }
+
             Destroy(gameObject);
         }
     }

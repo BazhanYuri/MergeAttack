@@ -7,13 +7,15 @@ namespace FPS
     {
         [SerializeField] private float _timeToExplode;
         [SerializeField] private float _explosinableRadius;
-        [SerializeField] private float _startDamage;
-        [SerializeField] private float _endDamage;
+        [SerializeField] private float _minDamage;
+        [SerializeField] private float _maxDamage;
+
+        [SerializeField] private ParticleSystem _explosionParticle;
 
 
         public float ExplosinableRadius { get => _explosinableRadius;}
-        public float StartDamage { get => _startDamage;}
-        public float EndDamage { get => _endDamage;}
         public float TimeToExplode { get => _timeToExplode;}
+        public float Damage { get => Random.RandomRange(_minDamage, _maxDamage); }
+        public ParticleSystem ExplosionParticle { get => _explosionParticle;}
     }
 }

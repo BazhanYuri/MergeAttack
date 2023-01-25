@@ -6,6 +6,7 @@ namespace FPS
 {
     public class GranateChooser : MonoBehaviour
     {
+        [SerializeField] private MergeInfoContainer _mergeInfoContainer;
         [SerializeField] private Arsenal _arsenal;
         [SerializeField] private Button _button;
 
@@ -17,11 +18,26 @@ namespace FPS
         private void OnDisable()
         {
             _button.onClick.RemoveListener(TakeGranate);
+            GameManager.Instance.GameplayStarted -= CheckToShowButton;
         }
+
+        private void Start()
+        {
+            GameManager.Instance.GameplayStarted += CheckToShowButton;
+        }
+
         private void TakeGranate()
         {
             _arsenal.ChooseGranade();
             _button.gameObject.SetActive(false);
+        }
+        private void CheckToShowButton()
+        {
+            if (_mergeInfoContainer.ChoosedExplosivnesIndex < 0)
+            {
+                return;
+            }
+            _button.gameObject.SetActive(true);
         }
     }
 }

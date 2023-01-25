@@ -24,19 +24,21 @@ namespace FPS
 
         private int _ammoCount;
 
-
         private bool _isShooting;
+
         private void Start()
         {
             _playerInput.TapStart += StartShooting;
             _playerInput.TapEnded += StopShoot;
             GameManager.Instance.GameplayStarted += SetUpWeapon;
+            GameManager.LevelCompleted += StopShoot;
         }
         private void OnDisable()
         {
             _playerInput.TapStart -= StartShooting;
             _playerInput.TapEnded -= StopShoot;
             GameManager.Instance.GameplayStarted -= SetUpWeapon;
+            GameManager.LevelCompleted -= StopShoot;
         }
 
         private void SetUpWeapon()
@@ -103,7 +105,7 @@ namespace FPS
             _ammoCount--;
             UpdateAmmoCountUI();
 
-            CameraShaker.Instance.ShakeCamera(0.04f, 0.1f, _weapons[_weaponIndex].ShootDelay * 0.8f);
+            CameraVisualEffects.Instance.ShakeCamera(0.06f, 0.2f, _weapons[_weaponIndex].ShootDelay * 1f);
         }
         private void StopShoot()
         {

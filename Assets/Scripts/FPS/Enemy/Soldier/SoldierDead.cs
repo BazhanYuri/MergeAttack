@@ -5,13 +5,17 @@ using UnityEngine;
 
 namespace FPS
 {
-    public class SoldierDead : Death
+    public class SoldierDead : EnemyDead
     {
-        [SerializeField] private Enemy _enemy;
+        [SerializeField] private Soldier _soldier;
+        [SerializeField] private SoldierAnimationController _animationController;
 
-        public override void Dead()
+
+        public override void OnDead()
         {
-            Destroy(_enemy.gameObject);
+            base.OnDead();
+            _animationController.DeathAnimation();
+            InvokeDeadAction();
         }
     }
 }

@@ -7,5 +7,6 @@ namespace FPS
     public class SoldierMovement : EnemyMovement
     {
 
+        
     }
 }

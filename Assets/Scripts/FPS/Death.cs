@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -7,20 +8,23 @@ namespace FPS
     {
         [SerializeField] protected Damagable _damagable;
 
+        public event Action Dead;
+        public bool IsDead { get; private set; }
 
 
         private void OnEnable()
         {
-            _damagable.Dead += Dead;
+            _damagable.Dead += OnDead;
         }
         private void OnDisable()
         {
-            _damagable.Dead -= Dead;
+            _damagable.Dead -= OnDead;
         }
 
-        public virtual void Dead()
+        public virtual void OnDead()
         {
-
+            IsDead = true;
+            Dead?.Invoke();
         }
     }
 }

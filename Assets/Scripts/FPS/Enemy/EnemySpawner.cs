@@ -15,15 +15,20 @@ namespace FPS
     {
         [SerializeField] private LevelsInfo _levelsInfo;
         [SerializeField] private Soldier _soldierPrefab;
+        [SerializeField] private Soldier _jagernautPrefab;
+
+        [SerializeField] private Enemy _dronPrefab;
 
 
         [SerializeField] private SpawnPoints _spawnPoints;
+
 
 
         private int _remainingSoldiers;
         private int _remainingJahegnauts;
         private int _remainingDrons;
         private int _remainingCopters;
+
 
         private float _minTimeToSpawn;
         private float _maxTimeToSpawn;
@@ -69,6 +74,8 @@ namespace FPS
                 }
                 else
                 {
+
+                    StopAllCoroutines();
                     yield return null;
                 }
 
@@ -82,8 +89,10 @@ namespace FPS
                     SpawnSoldier();
                     break;
                 case EnemyType.Jagernaut:
+                    SpawnJagernaut();
                     break;
                 case EnemyType.Dron:
+                    SpawnDron();
                     break;
                 case EnemyType.Copter:
                     break;
@@ -96,6 +105,16 @@ namespace FPS
             Instantiate(_soldierPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
             _remainingSoldiers--;
         }
+        private void SpawnJagernaut()
+        {
+            Instantiate(_jagernautPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
+            _remainingJahegnauts--;
+        }
+        private void SpawnDron()
+        {
+            Instantiate(_dronPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
+            _remainingDrons--;
+        }
 
         private void SetRemainings()
         {
@@ -105,6 +124,8 @@ namespace FPS
             _remainingJahegnauts = info.JahernautsCount;
             _remainingDrons = info.DronsCount;
             _remainingCopters = info.CoptersCount;
+
+            GameManager.Instance.SetCountOfAllEnemies(_remainingSoldiers + _remainingJahegnauts + _remainingDrons + _remainingCopters);
 
             _minTimeToSpawn = info.MinTimeToSpawn;
             _maxTimeToSpawn = info.MaxTimeToSpawn;

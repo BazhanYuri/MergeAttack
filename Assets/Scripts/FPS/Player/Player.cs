@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+
+namespace FPS
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Player : MonoBehaviour
     {
-        
+        [SerializeField] private Damagable _damagable;
+
+
+        public static Player Instance;
+        public Damagable Damagable { get => _damagable;}
+
+
+
+
+        private void Start()
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
