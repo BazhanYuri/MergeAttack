@@ -9,7 +9,9 @@ namespace FPS
         Head,
         Body,
         Arm,
-        Leg
+        Leg,
+        Main,
+        Weapon
     }
 
     public class DamagablePart : MonoBehaviour
@@ -35,6 +37,9 @@ namespace FPS
                     _damageIndex = 0.5f;
                     break;
                 case PartType.Leg:
+                    _damageIndex = 0.8f;
+                    break;
+                case PartType.Main:
                     _damageIndex = 0.8f;
                     break;
                 default:

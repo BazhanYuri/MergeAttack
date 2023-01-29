@@ -116,6 +116,7 @@
     <Compile Include="Assets\Scripts\MergeUiHidder.cs" />
     <Compile Include="Assets\Scripts\Merge\Grid.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_New.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\EnemiesKilledIndicator.cs" />
     <Compile Include="Assets\Scripts\Merge\ItemMerge.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Player.cs" />
@@ -132,7 +133,7 @@
     <Compile Include="Assets\Scripts\FPS\SpawnPoints.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Scripts\FPS\UI\EnemiesKilledIndicator.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronDead.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
