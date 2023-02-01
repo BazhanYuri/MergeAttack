@@ -1500,6 +1500,7 @@ MonoBehaviour:
   death: {fileID: 6904519479456454276}
   _enemyMovement: {fileID: 2469858250975756717}
   _enemyInfo: {fileID: 11400000, guid: c1468e474007317499ecee66b855a231, type: 2}
+  _enemyType: 0
 --- !u!1 &3174336411009912947
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,7 +3954,7 @@ Transform:
   m_GameObject: {fileID: 8495527450448992681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_Children:
   - {fileID: 3674285647774458759}
   - {fileID: 4679911970517102274}
@@ -4243,5 +4244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damagable: {fileID: 5254220147174553989}
+  _enemy: {fileID: 0}
   _soldier: {fileID: 1604924067861983577}
   _animationController: {fileID: 4502622628921523318}

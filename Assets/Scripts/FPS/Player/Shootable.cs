@@ -84,19 +84,42 @@ namespace FPS
                 if (hit.collider.TryGetComponent(out DamagablePart damagable))
                 {
                     damagable.GetDamage(_weapons[_weaponIndex].Damage);
-                    ShowPointer(hit.point);
+                    HitType hitType = HitType.Head;
 
-                    if (damagable.PartType == PartType.Head)
+                    switch (damagable.PartType)
                     {
-                        SpawnHitEffect(hit.point, HitType.Head);
+                        case PartType.Head:
+                            hitType = HitType.Head;
+                            break;
+                        case PartType.Body:
+                            hitType = HitType.Head;
+                            break;
+                        case PartType.Arm:
+                            hitType = HitType.Head;
+                            break;
+                        case PartType.Leg:
+                            hitType = HitType.Head;
+                            break;
+                        case PartType.DronMain:
+                            hitType = HitType.Metal;
+                            break;
+                        case PartType.Weapon:
+                            hitType = HitType.Metal;
+                            break;
+                        case PartType.Protected:
+                            hitType = HitType.Metal;
+                            break;
+                        default:
+                            break;
                     }
-                    else
-                    {
-                        SpawnHitEffect(hit.point, HitType.Body);
-                    }
+
+                    SpawnHitEffect(hit.point, hitType);
+
+                    ShowPointer(hit.point, hitType);
+
                 }
 
-                
+
             }
 
 
@@ -124,9 +147,9 @@ namespace FPS
         {
             _ammoCountText.text = _ammoCount.ToString();
         }
-        private void ShowPointer(Vector3 position)
+        private void ShowPointer(Vector3 position, HitType hitType)
         {
-            _hitPointerUI.ShowPointer(position);
+            _hitPointerUI.ShowPointer(position, hitType);
         }
         private void ShootFireLightParticle()
         {

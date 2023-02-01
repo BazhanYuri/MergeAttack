@@ -8,7 +8,8 @@ namespace FPS
     {
         Head,
         Body,
-        ProtectedPart
+        ProtectedPart,
+        Metal
     }
     public class ShootHitEffect : MonoBehaviour
     {
@@ -25,6 +26,9 @@ namespace FPS
                     _effects[0].gameObject.SetActive(true);
                     break;
                 case HitType.ProtectedPart:
+                    _effects[1].gameObject.SetActive(true);
+                    break;
+                case HitType.Metal:
                     _effects[2].gameObject.SetActive(true);
                     break;
                 default:

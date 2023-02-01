@@ -10,20 +10,21 @@ namespace FPS
         Body,
         Arm,
         Leg,
-        Main,
+        Protected,
+        DronMain,
         Weapon
     }
 
     public class DamagablePart : MonoBehaviour
     {
-        [SerializeField] private Damagable _damagable;
+        [SerializeField] protected Damagable _damagable;
         [SerializeField] private PartType _partType;
 
         private float _damageIndex;
 
         public PartType PartType { get => _partType;}
 
-        public void GetDamage(float damage)
+        public virtual void GetDamage(float damage)
         {
             switch (_partType)
             {
@@ -39,15 +40,17 @@ namespace FPS
                 case PartType.Leg:
                     _damageIndex = 0.8f;
                     break;
-                case PartType.Main:
+                case PartType.DronMain:
                     _damageIndex = 0.8f;
+                    break;
+                case PartType.Protected:
+                    _damageIndex = 0;
                     break;
                 default:
                     break;
             }
 
             _damagable.GetDamage(damage * _damageIndex);
-            print(damage * _damageIndex);
         }
     }
 }
