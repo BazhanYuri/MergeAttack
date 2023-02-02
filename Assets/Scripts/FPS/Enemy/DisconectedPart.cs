@@ -31,7 +31,7 @@ namespace FPS
             if (_health <= 0)
             {
                 _rigidbody.isKinematic = false;
-                _rigidbody.AddForce(_forceVector);
+                _rigidbody.AddRelativeForce(_forceVector);
                 _isDisconected = true;
                 _rigidbody.transform.parent = null;
             }

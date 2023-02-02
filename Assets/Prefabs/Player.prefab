@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c765d2187675b6b47abd5076c1fb4f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 339116005}
+  _damagable: {fileID: 0}
   _cameraRigid: {fileID: 551621353}
 --- !u!1 &330344656
 GameObject:
@@ -714,6 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2090554563}
+  _processProfile: {fileID: 0}
 --- !u!1 &9065995828179641
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4f355a15faa614cab54467782379cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mergeInfoContainer: {fileID: 0}
+  _arsenal: {fileID: 0}
   _explosinable: {fileID: 0}
   _playerInput: {fileID: 2227936967319442230}
   _acceleration: 10
@@ -1048,6 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cea072f0a0923b4c99164ac2631fb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mergeInfoContainer: {fileID: 0}
   _weaponRoot: {fileID: 0}
   _explosibleRoot: {fileID: 0}
 --- !u!1 &1802748644222469549
@@ -2962,6 +2964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290c93937bf7a8743a4c6587abe860d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damagable: {fileID: 0}
 --- !u!1 &7904707999004509405
 GameObject:
   m_ObjectHideFlags: 0

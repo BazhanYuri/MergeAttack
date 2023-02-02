@@ -34,8 +34,9 @@ namespace FPS
                 default:
                     break;
             }
-        }
 
+            Destroy(gameObject, 5);
+        }
     }
 }
 

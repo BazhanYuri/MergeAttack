@@ -6,15 +6,22 @@ using UnityEngine;
 
 namespace FPS
 {
+    public enum ExpoType
+    {
+        RGD,
+        F1,
+        Dynamit
+    }
     public class Explosinable : MonoBehaviour
     {
         [SerializeField] private ExploInfo[] _exploInfos;
 
         [SerializeField] private Rigidbody _rigidbody;
 
+        [SerializeField] private ExplosinableSound _explosinableSound;
 
         private ExploInfo _currentInfo;
-        
+        private ExpoType _expoType;
 
 
         public Rigidbody Rigidbody { get => _rigidbody; }
@@ -31,6 +38,8 @@ namespace FPS
         {
             _currentInfo = _exploInfos[index];
             _currentInfo.gameObject.SetActive(true);
+
+            _expoType = (ExpoType)(index);
         }
 
         private IEnumerator StartExpo()
@@ -51,8 +60,9 @@ namespace FPS
                     damagable.GetDamage(_currentInfo.Damage);
                 }
             }
-
-            Destroy(gameObject);
+            _explosinableSound.PlayExplosionableSound(_expoType);
+            transform.GetChild(0).gameObject.SetActive(false);
+            Destroy(gameObject, 5);
         }
     }
 }

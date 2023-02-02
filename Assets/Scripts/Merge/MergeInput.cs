@@ -155,6 +155,7 @@ namespace Merge
                     else if (cell.CurrentItem.ItemMerge.Index == _slidedItem.ItemMerge.Index && cell.CurrentItem.ItemType == _slidedItem.ItemType)
                     {
                         cell.CurrentItem.ItemMerge.Merge(_slidedItem);
+                        SoundManager.Instance.ItemMerged(_slidedItem.ItemMerge.Index);
                     }
                 }
             }
@@ -179,6 +180,7 @@ namespace Merge
 
                     if (item.IsChoosed == false)
                     {
+                        SoundManager.Instance.ItemSelected();
                         item.Canvas.ChooseItem();
 
                         switch (item.ItemType)
@@ -206,6 +208,8 @@ namespace Merge
                     }
 
                     item.IsChoosed = !item.IsChoosed;
+
+
                     switch (item.ItemType)
                     {
                         case ItemType.Firearms:

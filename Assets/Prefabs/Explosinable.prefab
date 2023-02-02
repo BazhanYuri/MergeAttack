@@ -44,9 +44,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afd5119cb09fd145b864c5a962becb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToExplode: 0
   _explosinableRadius: 0
-  _startDamage: 0
-  _endDamage: 0
+  _minDamage: 0
+  _maxDamage: 0
+  _explosionParticle: {fileID: 0}
+--- !u!1 &3204220597301283096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3718960719972269677}
+  - component: {fileID: 43346061764904425}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3718960719972269677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204220597301283096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5707572519187238641}
+  m_Father: {fileID: 6025865608358377207}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43346061764904425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204220597301283096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c3f5a8775d8404aad8074500497ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rgd: {fileID: 764378159246756598}
+  _f1: {fileID: 764378159246756598}
+  _dynamit: {fileID: 764378159246756598}
 --- !u!1 &4493214543316129130
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9024289739581443819}
+  - {fileID: 3718960719972269677}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,8 +147,8 @@ MonoBehaviour:
   - {fileID: 3441078280004603030}
   - {fileID: 1836053234686867735}
   - {fileID: 5921001694230516154}
-  _sphereCollider: {fileID: 0}
   _rigidbody: {fileID: 635726583050389961}
+  _explosinableSound: {fileID: 43346061764904425}
 --- !u!54 &635726583050389961
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -172,9 +222,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afd5119cb09fd145b864c5a962becb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToExplode: 0
   _explosinableRadius: 0
-  _startDamage: 0
-  _endDamage: 0
+  _minDamage: 0
+  _maxDamage: 0
+  _explosionParticle: {fileID: 0}
+--- !u!1 &6233676275517341852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5707572519187238641}
+  - component: {fileID: 764378159246756598}
+  m_Layer: 0
+  m_Name: RGD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5707572519187238641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233676275517341852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3718960719972269677}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &764378159246756598
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233676275517341852}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6bb0d25e182af5449bd3f150e25ff4f6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7787833216447303403
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,9 +398,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afd5119cb09fd145b864c5a962becb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeToExplode: 0
   _explosinableRadius: 0
-  _startDamage: 0
-  _endDamage: 0
+  _minDamage: 0
+  _maxDamage: 0
+  _explosionParticle: {fileID: 0}
 --- !u!1 &8064250374874844299
 GameObject:
   m_ObjectHideFlags: 0

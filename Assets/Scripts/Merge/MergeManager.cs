@@ -136,6 +136,7 @@ namespace Merge
 
         private void IntantiateItem(Item itemPrefab)
         {
+            SoundManager.Instance.ItemBought();
             Item item = Instantiate(itemPrefab);
 
             for (int i = 0; i < _grid.rows.Length; i++)
