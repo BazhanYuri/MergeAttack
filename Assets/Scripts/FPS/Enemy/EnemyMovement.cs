@@ -6,9 +6,19 @@ namespace FPS
 {
     public class EnemyMovement : MonoBehaviour
     {
+        [SerializeField] private EnemyDead _enemyDead;
         [SerializeField] private NavMeshAgent _meshAgent;
 
 
+
+        private void OnEnable()
+        {
+            _enemyDead.Dead += OnDead;
+        }
+        private void OnDisable()
+        {
+            _enemyDead.Dead -= OnDead;
+        }
 
         public void StopMoving()
         {
@@ -23,9 +33,14 @@ namespace FPS
             _meshAgent.SetDestination(position);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             SetDestination(new Vector3(0, 0, -12.64f));
+        }
+        protected virtual void OnDead()
+        {
+            StopMoving();
+            StopAllCoroutines();
         }
     }
 

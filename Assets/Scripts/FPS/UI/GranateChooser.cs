@@ -30,6 +30,7 @@ namespace FPS
         {
             _arsenal.ChooseGranade();
             _button.gameObject.SetActive(false);
+            SoundManager.Instance.GranateTook();
         }
         private void CheckToShowButton()
         {

@@ -1412,6 +1412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c282590899e089343af2366dca9fc58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyDead: {fileID: 6904519479456454276}
   _meshAgent: {fileID: 6202602872600306065}
 --- !u!1 &6189175744499394437
 GameObject:

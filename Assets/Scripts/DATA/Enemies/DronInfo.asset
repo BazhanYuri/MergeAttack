@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01997038f5c7b2408526bb09666b125, type: 3}
   m_Name: DronInfo
   m_EditorClassIdentifier: 
-  DamagePerHit: 0.5
-  TimeToStartShoot: 7
+  DamagePerHit: 0.01
+  TimeToStartShoot: 1
   MinTimeToMove: 1
-  MaxTimeToMove: 4
-  MinCountOfShoot: 5
-  MaxCountOfShoot: 15
-  MinDelayOfShoot: 0.3
-  MaxDelayOfShoot: 0.8
+  MaxTimeToMove: 2
+  MinCountOfShoot: 4
+  MaxCountOfShoot: 20
+  MinDelayOfShoot: 0.01
+  MaxDelayOfShoot: 0.1

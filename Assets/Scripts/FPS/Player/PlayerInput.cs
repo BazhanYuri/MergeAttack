@@ -7,6 +7,13 @@ public class Clamps
 {
     public float min;
     public float max;
+
+
+
+    public float GetRandomValue()
+    {
+        return UnityEngine.Random.Range(min, max);
+    }
 }
 
 namespace FPS
@@ -22,9 +29,9 @@ namespace FPS
         public event Action TapStart; 
         public event Action TapEnded;
 
-
+        private Vector2 _delta;
         private bool _isCanControl = false;
-
+        private bool _isDragging = false;
 
         private void Start()
         {
@@ -45,6 +52,15 @@ namespace FPS
             }
             CheckInput();
         }
+        private void FixedUpdate()
+        {
+            if (_isDragging == false)
+            {
+                return;
+            }
+           // RotatePlayerByTouch();
+        }
+
         private void CheckInput()
         {
             if (Input.touchCount > 0)
@@ -57,14 +73,17 @@ namespace FPS
                         TapStart?.Invoke();
                         break;
                     case TouchPhase.Moved:
-                        RotatePlayerByTouch(touch);
+                        GetDeltas(touch);
                         break;
                     case TouchPhase.Stationary:
+                        _isDragging = false;
                         break;
                     case TouchPhase.Ended:
                         TapEnded?.Invoke();
+                        _isDragging = false;
                         break;
                     case TouchPhase.Canceled:
+                        _isDragging = false;
                         break;
                     default:
                         break;
@@ -75,12 +94,21 @@ namespace FPS
 
         private float _angleX = 0.0f;
         private float _angleY = 0.0f;
-        private void RotatePlayerByTouch(Touch touch)
+
+        private void GetDeltas(Touch touch)
         {
-            _angleX += touch.deltaPosition.y * -_xSpeed * Time.deltaTime;
+            _isDragging = true;
+            _delta = new Vector2(touch.deltaPosition.x, touch.deltaPosition.y);
+            RotatePlayerByTouch();
+        }
+        private void RotatePlayerByTouch()
+        {
+
+
+            _angleX += _delta.y * -_xSpeed * Time.deltaTime;
             _angleX = Mathf.Clamp(_angleX, _clampX.min, _clampX.max);
 
-            _angleY += touch.deltaPosition.x * _ySpeed * Time.deltaTime;
+            _angleY += _delta.x * _ySpeed * Time.deltaTime;
             _angleY = Mathf.Clamp(_angleY, _clampY.min, _clampY.max);
 
             _player.transform.rotation = Quaternion.Euler(_angleX, _angleY, 0.0f);
@@ -94,8 +122,6 @@ namespace FPS
         {
             _isCanControl = false;
         }
-
     }
-    
 }
 

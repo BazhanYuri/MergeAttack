@@ -23,12 +23,17 @@ namespace FPS
         private ExploInfo _currentInfo;
         private ExpoType _expoType;
 
+        private bool _isExploded = false;
 
         public Rigidbody Rigidbody { get => _rigidbody; }
 
 
         private void OnCollisionEnter(Collision collision)
         {
+            if (_isExploded == true)
+            {
+                return;
+            }
             StartCoroutine(StartExpo());
         }
         
@@ -62,6 +67,7 @@ namespace FPS
             }
             _explosinableSound.PlayExplosionableSound(_expoType);
             transform.GetChild(0).gameObject.SetActive(false);
+            _isExploded = true;
             Destroy(gameObject, 5);
         }
     }

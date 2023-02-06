@@ -14,7 +14,7 @@ namespace FPS
 
 
 
-        private EnemyInfo _inf;
+        protected EnemyInfo _inf;
 
 
         private void OnEnable()

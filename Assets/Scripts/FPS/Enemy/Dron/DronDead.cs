@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -14,8 +15,13 @@ namespace FPS
         {
             base.OnDead();
             _rotatable.isKinematic = false;
-            Destroy(_mainPart);
             InvokeDeadAction();
+            StartCoroutine(DeleteJoint());
+        }
+        private IEnumerator DeleteJoint()
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(_mainPart);
         }
     }
 

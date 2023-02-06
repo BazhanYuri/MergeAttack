@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -11,6 +12,8 @@ namespace FPS
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Vector3 _forceVector;
 
+
+        public event Action Disconected;
 
         private bool _isDisconected = false;
 
@@ -34,6 +37,7 @@ namespace FPS
                 _rigidbody.AddRelativeForce(_forceVector);
                 _isDisconected = true;
                 _rigidbody.transform.parent = null;
+                Disconected?.Invoke();
             }
         }
     }

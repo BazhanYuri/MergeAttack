@@ -129,6 +129,7 @@ namespace FPS
             UpdateAmmoCountUI();
 
             CameraVisualEffects.Instance.ShakeCamera(0.06f, 0.2f, _weapons[_weaponIndex].ShootDelay * 1f);
+            SoundManager.Instance.Shoot(_weapons[_weaponIndex].ShootableType);
         }
         private void StopShoot()
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01997038f5c7b2408526bb09666b125, type: 3}
   m_Name: SoldierInfo
   m_EditorClassIdentifier: 
-  DamagePerHit: 5
+  DamagePerHit: 0.1
   TimeToStartShoot: 7
   MinTimeToMove: 1
   MaxTimeToMove: 4
