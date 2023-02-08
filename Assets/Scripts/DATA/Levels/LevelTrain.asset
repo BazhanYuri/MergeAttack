@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4401c5ace47f347beef2f4496ae0d7, type: 3}
   m_Name: LevelTrain
   m_EditorClassIdentifier: 
-  SoldierCount: 0
-  DronsCount: 15
-  JahernautsCount: 1
+  SoldierCount: 10
+  DronsCount: 0
+  JahernautsCount: 0
   CoptersCount: 0
   MinTimeToSpawn: 1
-  MaxTimeToSpawn: 5
+  MaxTimeToSpawn: 3

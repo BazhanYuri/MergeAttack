@@ -32,7 +32,6 @@ namespace FPS
         {
             _inf = _enemy.EnemyInfo;
             StartCoroutine(StateChoosing());
-            print("start");
         }
         private IEnumerator StateChoosing()
         {
@@ -66,12 +65,31 @@ namespace FPS
         protected virtual void Shoot()
         {
             Player.Instance.Damagable.GetDamage(_inf.DamagePerHit);
+            PlaySound();
             return;
         }
         protected virtual void OnDead()
         {
             StopAllCoroutines();
             _enemy.EnemyMovement.StopMoving();
+        }
+        private void PlaySound()
+        {
+            switch (_enemy.EnemyType)
+            {
+                case EnemyType.Soldier:
+                    SoundManager.Instance.SoldierShoot(_enemy.Visual);
+                    break;
+                case EnemyType.Jagernaut:
+                    SoundManager.Instance.JahherShoot(_enemy.Visual);
+                    break;
+                case EnemyType.Dron:
+                    break;
+                case EnemyType.Copter:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

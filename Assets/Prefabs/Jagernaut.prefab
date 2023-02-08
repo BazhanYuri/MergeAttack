@@ -747,6 +747,7 @@ MonoBehaviour:
   death: {fileID: 6904519479456454276}
   _enemyMovement: {fileID: 2469858250975756717}
   _enemyInfo: {fileID: 11400000, guid: 96d950ebc053beb419b9bac4aab75b68, type: 2}
+  _visual: {fileID: 4172823265656886682}
   _enemyType: 1
 --- !u!1 &3346395092689847936
 GameObject:

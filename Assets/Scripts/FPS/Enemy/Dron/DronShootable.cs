@@ -7,7 +7,11 @@ namespace FPS
     public class DronShootable : EnemyShootable
     {
         [SerializeField] private DisconectedPart _firstGun;
+        [SerializeField] private DisconectedPart _firstEngine;
+
         [SerializeField] private DisconectedPart _secondGun;
+        [SerializeField] private DisconectedPart _secodEngine;
+
 
         private Transform _firstGunPoint;
         private Transform _secondGunPoint;
@@ -15,10 +19,13 @@ namespace FPS
 
         private int _currentCountOfWeapons = 2;
 
+
         private void OnEnable()
         {
             _firstGun.Disconected += MinusOneGun;
             _secondGun.Disconected += MinusOneGun;
+            _firstEngine.Disconected += MinusOneGun;
+            _secodEngine.Disconected += MinusOneGun;
 
             _firstGunPoint = _firstGun.transform.GetChild(0);
             _secondGunPoint = _secondGun.transform.GetChild(0);
@@ -27,6 +34,8 @@ namespace FPS
         {
             _firstGun.Disconected -= MinusOneGun;
             _secondGun.Disconected -= MinusOneGun;
+            _firstEngine.Disconected -= MinusOneGun;
+            _secodEngine.Disconected -= MinusOneGun;
         }
         private void MinusOneGun()
         {

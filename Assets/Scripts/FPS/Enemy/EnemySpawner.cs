@@ -18,10 +18,14 @@ namespace FPS
         [SerializeField] private Soldier _jagernautPrefab;
 
         [SerializeField] private Enemy _dronPrefab;
+        [SerializeField] private Enemy _copterPrefab;
 
 
-        [SerializeField] private SpawnPoints _spawnPoints;
+        [SerializeField] private SpawnPoints _soldierSpawnPoints;
+        [SerializeField] private SpawnPoints _copterSpawnPoints;
 
+
+        public static event System.Action<Transform, EnemyType> EnemySpawnedFirst;
 
 
         private int _remainingSoldiers;
@@ -61,7 +65,7 @@ namespace FPS
                 {
                     while (isChoosed == false)
                     {
-                        type = (EnemyType)Random.Range(0, 3);
+                        type = (EnemyType)Random.Range(0, 4);
 
                         if (CheckIsThereIsPool(type) == true)
                         {
@@ -95,6 +99,7 @@ namespace FPS
                     SpawnDron();
                     break;
                 case EnemyType.Copter:
+                    SpawnCopter();
                     break;
                 default:
                     break;
@@ -102,20 +107,26 @@ namespace FPS
         }
         private void SpawnSoldier()
         {
-            Instantiate(_soldierPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
+            Instantiate(_soldierPrefab).transform.position = _soldierSpawnPoints.GetRandomPoint().position;
             _remainingSoldiers--;
         }
         private void SpawnJagernaut()
         {
-            Instantiate(_jagernautPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
+            Transform randomPoint = _soldierSpawnPoints.GetRandomPoint();
+            Instantiate(_jagernautPrefab).transform.position = randomPoint.position;
             _remainingJahegnauts--;
+            SoundManager.Instance.JahherSpawned(randomPoint);
         }
         private void SpawnDron()
         {
-            Instantiate(_dronPrefab).transform.position = _spawnPoints.GetRandomPoint().position;
+            Instantiate(_dronPrefab).transform.position = _soldierSpawnPoints.GetRandomPoint().position;
             _remainingDrons--;
         }
-
+        private void SpawnCopter()
+        {
+            Instantiate(_copterPrefab).transform.position = _copterSpawnPoints.GetRandomPoint().position;
+            _remainingCopters--;
+        }
         private void SetRemainings()
         {
             LevelInfo info = _levelsInfo.LevelInfos[GameManager.Instance.CurrentLevel];

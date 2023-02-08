@@ -25,10 +25,10 @@ namespace FPS
         {
             while (true)
             {
-                if (_health <= 100)
+                if (_currentHealth <= 100)
                 {
                     yield return new WaitForSeconds(0.1f);
-                    _health += _repairedValuePerSecond / 10f;
+                    _currentHealth += _repairedValuePerSecond / 10f;
                     HealthUpdated();
                 }
                 yield return null;

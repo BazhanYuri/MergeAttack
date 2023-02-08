@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FPS
 {
-    public class SoldierShootable : EnemyShootable
+    public class RifleShootable : EnemyShootable
     {
         [SerializeField] private SoldierAnimationController _soldierAnimationController;
         [SerializeField] private Transform _shootPoint;
@@ -13,17 +13,26 @@ namespace FPS
 
         protected override void SetMoving()
         {
-            _soldierAnimationController.Run();
+            if (_soldierAnimationController != null)
+            {
+                _soldierAnimationController.Run();
+            }
             base.SetMoving();
         }
         protected override IEnumerator SetShooting()
         {
-            _soldierAnimationController.Aiming();
+            if (_soldierAnimationController != null)
+            {
+                _soldierAnimationController.Aiming();
+            }
             return base.SetShooting();
         }
         protected override void Shoot()
         {
-            _soldierAnimationController.Shoot();
+            if (_soldierAnimationController != null)
+            {
+                _soldierAnimationController.Shoot();
+            }
             SpawnParticle();
             base.Shoot();
         }

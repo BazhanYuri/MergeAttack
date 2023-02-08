@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &915775263160314987
 GameObject:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 2
 --- !u!136 &5981075770678940790
 CapsuleCollider:
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &1259687412293151929
 GameObject:
@@ -674,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5912718371680976003}
-  - component: {fileID: 5254220147174553989}
+  - component: {fileID: 600987903151239960}
   m_Layer: 0
   m_Name: Damagable
   m_TagString: Untagged
@@ -696,7 +696,7 @@ Transform:
   m_Father: {fileID: 917198702725797103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5254220147174553989
+--- !u!114 &600987903151239960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,10 +705,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1683389656135500514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3218fa939137d4db22fb5b5d3a12e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 55a83c2a9f02da74389ec232b235ace0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _enemy: {fileID: 1604924067861983577}
 --- !u!1 &1701359098769185403
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &2188781827481003932
 GameObject:
@@ -1359,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &3118118363747070619
 GameObject:
@@ -1500,6 +1501,7 @@ MonoBehaviour:
   death: {fileID: 6904519479456454276}
   _enemyMovement: {fileID: 2469858250975756717}
   _enemyInfo: {fileID: 11400000, guid: c1468e474007317499ecee66b855a231, type: 2}
+  _visual: {fileID: 4172823265656886682}
   _enemyType: 0
 --- !u!1 &3174336411009912947
 GameObject:
@@ -1689,7 +1691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 2
 --- !u!136 &4680777242083731482
 CapsuleCollider:
@@ -1749,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 2
 --- !u!136 &4890706463356689709
 CapsuleCollider:
@@ -2069,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 0
 --- !u!1 &4483108236085170372
 GameObject:
@@ -2190,7 +2192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &4879913124613181106
 GameObject:
@@ -2407,7 +2409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 3
 --- !u!1 &5408426275234780913
 GameObject:
@@ -2776,7 +2778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 2
 --- !u!136 &3152073510626302502
 CapsuleCollider:
@@ -3021,7 +3023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e59d5acfd78ba459ddea46615e4041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
+  _damagable: {fileID: 600987903151239960}
   _partType: 1
 --- !u!1 &6491501909605410398
 GameObject:
@@ -4244,7 +4246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfd895b48756b24a8f6ab1672df92de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagable: {fileID: 5254220147174553989}
-  _enemy: {fileID: 0}
+  _damagable: {fileID: 600987903151239960}
+  _enemy: {fileID: 1604924067861983577}
   _soldier: {fileID: 1604924067861983577}
   _animationController: {fileID: 4502622628921523318}

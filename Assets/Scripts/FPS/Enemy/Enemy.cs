@@ -8,6 +8,7 @@ namespace FPS
         [SerializeField] private Death death;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private EnemyInfo _enemyInfo;
+        [SerializeField] private Transform _visual;
 
         [SerializeField] private EnemyType _enemyType;
 
@@ -15,6 +16,7 @@ namespace FPS
         public virtual Death Death { get => death;}
         public EnemyInfo EnemyInfo { get => _enemyInfo;}
         public EnemyType EnemyType { get => _enemyType;}
+        public Transform Visual { get => _visual;}
     }
 
 }

@@ -11,28 +11,32 @@ namespace FPS
         public event Action Dead;
         public event Action<float> HealthChanged;
 
+        protected float _currentHealth;
 
         public void GetDamage(float damage)
         {
-            if (_health <= 0)
+            if (_currentHealth <= 0)
             {
                 return;
             }
 
-            _health -= damage;
+            _currentHealth -= damage;
             HealthUpdated();
-            if (_health <= 0)
+            if (_currentHealth <= 0)
             {
                 Dead?.Invoke();
             }
         }
         public virtual void HealthUpdated()
         {
-            HealthChanged?.Invoke(_health);
+            HealthChanged?.Invoke(_currentHealth);
         }
 
+        private void Awake()
+        {
+            _currentHealth = _health;
+        }
 
-    
     }
 }
 

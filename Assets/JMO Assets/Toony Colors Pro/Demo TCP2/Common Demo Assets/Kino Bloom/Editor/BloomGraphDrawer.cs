@@ -27,7 +27,7 @@ using UnityEditor;
 namespace Kino
 {
     // Class used for drawing the brightness response curve
-    public class BloomGraphDrawer
+    /*public class BloomGraphDrawer
     {
         #region Public Methods
 
@@ -179,5 +179,5 @@ namespace Kino
         }
 
         #endregion
-    }
+    }*/
 }

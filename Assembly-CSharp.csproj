@@ -89,25 +89,29 @@
     <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\FPS\UI\HitPointer.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronExplosines.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKLook.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleProcedualAnimation.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\ExplosivleThrow.cs" />
     <Compile Include="Assets\Scripts\Merge\StartTableEnemiesCount.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronDamagable.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierDead.cs" />
     <Compile Include="Assets\Scripts\MoneyManager.cs" />
-    <Compile Include="Assets\Scripts\ColliderTypeDetect.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Copter\CopterMovement.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleRotator.cs" />
+    <Compile Include="Assets\Scripts\ColliderTypeDetect.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierAnimationController.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerDead.cs" />
-    <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierShootable.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\RifleShootable.cs" />
     <Compile Include="Assets\Scripts\__DATA\LevelsInfo.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\__DATA\EnemyInfo.cs" />
     <Compile Include="Assets\Scripts\__DATA\BulletsData.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\Copter\CopterShootable.cs" />
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKCCD.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierMovement.cs" />
@@ -146,7 +150,8 @@
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
-    <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronExplosines.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDamagable.cs" />
+    <Compile Include="Assets\Scripts\FPS\Camera\FirstEnemySeen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

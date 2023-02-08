@@ -8,7 +8,7 @@ namespace FPS
     public class DronMovement : EnemyMovement
     {
         [Header ("Sides movement")]
-        [SerializeField] private Transform _sidesImulse;
+        [SerializeField] protected Transform _visualPart;
         [SerializeField] private Clamps _timeToMoveSides;
         [SerializeField] private Clamps _countToMoveSides;
         [SerializeField] private Clamps _speedTimeToMoveSides;
@@ -27,10 +27,9 @@ namespace FPS
         protected override void Start()
         {
             base.Start();
-            StartCoroutine(MoveSides());
-            StartCoroutine(MoveUpDown());
+            StartDronMovement();
         }
-
+       
 
         private IEnumerator MoveSides()
         {
@@ -49,7 +48,7 @@ namespace FPS
 
                     for (int i = 0; i < timesToMoveSide; i++)
                     {
-                        sideMovement.Append(_sidesImulse.DOLocalMoveX(_minMaxPositionToMoveSides.GetRandomValue(), _speedTimeToMoveSides.GetRandomValue()));
+                        sideMovement.Append(_visualPart.DOLocalMoveX(_minMaxPositionToMoveSides.GetRandomValue(), _speedTimeToMoveSides.GetRandomValue()));
                     }
                     animationPlaying = true;
                     sideMovement.OnComplete(() => animationPlaying = false);
@@ -75,7 +74,7 @@ namespace FPS
 
                     for (int i = 0; i < timesToMoveSide; i++)
                     {
-                        upDownMovement.Append(_sidesImulse.DOLocalMoveY(_minMaxPositionToMoveUpDown.GetRandomValue(), _speedTimeToMoveUpDown.GetRandomValue()));
+                        upDownMovement.Append(_visualPart.DOLocalMoveY(_minMaxPositionToMoveUpDown.GetRandomValue(), _speedTimeToMoveUpDown.GetRandomValue()));
                     }
                     animationPlaying = true;
                     upDownMovement.OnComplete(() => animationPlaying = false);
@@ -84,7 +83,11 @@ namespace FPS
                 yield return null;
             }
         }
-
+        protected void StartDronMovement()
+        {
+            StartCoroutine(MoveSides());
+            StartCoroutine(MoveUpDown());
+        }
         protected override void OnDead()
         {
             base.OnDead();

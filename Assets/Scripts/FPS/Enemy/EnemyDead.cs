@@ -17,6 +17,25 @@ namespace FPS
         {
             DeadEnemy?.Invoke();
             DeadEnemyWithType?.Invoke(_enemy.EnemyType);
+            InvokeSound();
+        }
+        private void InvokeSound()
+        {
+            switch (_enemy.EnemyType)
+            {
+                case EnemyType.Soldier:
+                    SoundManager.Instance.SoldierDied(_enemy.Visual);
+                    break;
+                case EnemyType.Jagernaut:
+                    SoundManager.Instance.JahherDead(_enemy.Visual);
+                    break;
+                case EnemyType.Dron:
+                    break;
+                case EnemyType.Copter:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

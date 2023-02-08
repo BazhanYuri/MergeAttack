@@ -48,6 +48,8 @@ namespace FPS
 
             _ammoCount = _bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex];
             UpdateAmmoCountUI();
+
+            SoundManager.Instance.WeaponTook();
         }
 
         private void StartShooting()
@@ -92,13 +94,13 @@ namespace FPS
                             hitType = HitType.Head;
                             break;
                         case PartType.Body:
-                            hitType = HitType.Head;
+                            hitType = HitType.Body;
                             break;
                         case PartType.Arm:
-                            hitType = HitType.Head;
+                            hitType = HitType.Body;
                             break;
                         case PartType.Leg:
-                            hitType = HitType.Head;
+                            hitType = HitType.Body;
                             break;
                         case PartType.DronMain:
                             hitType = HitType.Metal;
@@ -107,7 +109,7 @@ namespace FPS
                             hitType = HitType.Metal;
                             break;
                         case PartType.Protected:
-                            hitType = HitType.Metal;
+                            hitType = HitType.ProtectedPart;
                             break;
                         default:
                             break;
@@ -116,7 +118,7 @@ namespace FPS
                     SpawnHitEffect(hit.point, hitType);
 
                     ShowPointer(hit.point, hitType);
-
+                    PlayHitSound(hitType);
                 }
 
 
@@ -128,7 +130,7 @@ namespace FPS
             _ammoCount--;
             UpdateAmmoCountUI();
 
-            CameraVisualEffects.Instance.ShakeCamera(0.06f, 0.2f, _weapons[_weaponIndex].ShootDelay * 1f);
+            CameraVisualEffects.Instance.ShakeCamera(0.1f, 0.2f, _weapons[_weaponIndex].ShootDelay * 1f);
             SoundManager.Instance.Shoot(_weapons[_weaponIndex].ShootableType);
         }
         private void StopShoot()
@@ -163,6 +165,26 @@ namespace FPS
             ShootHitEffect shootHitEffect = Instantiate(_shootHitEffectPrefab);
             shootHitEffect.transform.position = position;
             shootHitEffect.ChooseEffect(hitType);
+        }
+        private void PlayHitSound(HitType hitType)
+        {
+            switch (hitType)
+            {
+                case HitType.Head:
+                    SoundManager.Instance.HeadShot();
+                    break;
+                case HitType.Body:
+                    SoundManager.Instance.BodyShot();
+                    break;
+                case HitType.ProtectedPart:
+                    SoundManager.Instance.PlastineShot();
+                    break;
+                case HitType.Metal:
+                    SoundManager.Instance.MetalShot();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

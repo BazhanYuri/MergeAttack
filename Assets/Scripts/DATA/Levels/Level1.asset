@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4401c5ace47f347beef2f4496ae0d7, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  SoldierCount: 0
+  SoldierCount: 5
   DronsCount: 0
-  JahernautsCount: 3
+  JahernautsCount: 1
   CoptersCount: 0
   MinTimeToSpawn: 0
   MaxTimeToSpawn: 1
