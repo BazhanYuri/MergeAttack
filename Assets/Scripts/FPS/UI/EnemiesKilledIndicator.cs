@@ -34,6 +34,8 @@ namespace FPS
         private void AddOneEnemy()
         {
             _slider.value += 1;
+            float percantageOfWin = _slider.value / _slider.maxValue;
+            _slider.fillRect.GetComponent<Image>().color = Color.HSVToRGB(0.33f, percantageOfWin, 1);
         }
     }
 

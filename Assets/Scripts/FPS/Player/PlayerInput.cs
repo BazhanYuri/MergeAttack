@@ -23,10 +23,10 @@ namespace FPS
         [SerializeField] private Player _player;
         [SerializeField] private Clamps _clampX;
         [SerializeField] private Clamps _clampY;
-        [SerializeField] private int _xSpeed; 
+        [SerializeField] private int _xSpeed;
         [SerializeField] private int _ySpeed;
 
-        public event Action TapStart; 
+        public event Action TapStart;
         public event Action TapEnded;
 
         private Vector2 _delta;
@@ -37,11 +37,15 @@ namespace FPS
         {
             GameManager.Instance.GameplayStarted += EnableControl;
             GameManager.LevelCompleted += DisableControl;
+            FirstEnemySeen.StartedCinematic += DisableControl;
+            FirstEnemySeen.EndedCinematic += EnableControl;
         }
         private void OnDisable()
         {
             GameManager.Instance.GameplayStarted -= EnableControl;
             GameManager.LevelCompleted -= DisableControl;
+            FirstEnemySeen.StartedCinematic -= DisableControl;
+            FirstEnemySeen.EndedCinematic -= EnableControl;
         }
 
         private void Update()
@@ -58,7 +62,7 @@ namespace FPS
             {
                 return;
             }
-           // RotatePlayerByTouch();
+            // RotatePlayerByTouch();
         }
 
         private void CheckInput()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JagernautInfo
   m_EditorClassIdentifier: 
   DamagePerHit: 0
-  TimeToStartShoot: 2
+  TimeToStartShoot: 5
   MinTimeToMove: 1
   MaxTimeToMove: 4
   MinCountOfShoot: 15

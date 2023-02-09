@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\ColliderTypeDetect.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierAnimationController.cs" />
+    <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDamagable.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerDead.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\RifleShootable.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Assets\Scripts\FPS\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Player.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\ExplosinableSound.cs" />
+    <Compile Include="Assets\Scripts\FPS\Camera\FirstEnemySeen.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightFlicker.cs" />
     <Compile Include="Assets\Scripts\FPS\UI\GranateChooser.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronMovement.cs" />
@@ -150,8 +152,6 @@
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
-    <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDamagable.cs" />
-    <Compile Include="Assets\Scripts\FPS\Camera\FirstEnemySeen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

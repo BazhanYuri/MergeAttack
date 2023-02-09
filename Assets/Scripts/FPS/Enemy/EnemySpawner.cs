@@ -113,19 +113,44 @@ namespace FPS
         private void SpawnJagernaut()
         {
             Transform randomPoint = _soldierSpawnPoints.GetRandomPoint();
-            Instantiate(_jagernautPrefab).transform.position = randomPoint.position;
+            Enemy enemy = Instantiate(_jagernautPrefab);
+            enemy.transform.position = randomPoint.position;
+
             _remainingJahegnauts--;
             SoundManager.Instance.JahherSpawned(randomPoint);
+
+            if (PlayerPrefs.GetInt(Prefs.JagerSpawned) != 1)
+            {
+                enemy.transform.position = _soldierSpawnPoints.PointForFirstSpawning().position;
+                EnemySpawnedFirst?.Invoke(enemy.Visual, enemy.EnemyType);
+            }
+            PlayerPrefs.SetInt(Prefs.JagerSpawned, 1);
         }
         private void SpawnDron()
         {
-            Instantiate(_dronPrefab).transform.position = _soldierSpawnPoints.GetRandomPoint().position;
+            Enemy enemy = Instantiate(_dronPrefab);
+            enemy.transform.position = _soldierSpawnPoints.GetRandomPoint().position;
             _remainingDrons--;
+
+            if (PlayerPrefs.GetInt(Prefs.DronSpawned) != 1)
+            {
+                enemy.transform.position = _soldierSpawnPoints.PointForFirstSpawning().position;
+                EnemySpawnedFirst?.Invoke(enemy.Visual, enemy.EnemyType);
+            }
+            PlayerPrefs.SetInt(Prefs.DronSpawned, 1);
         }
         private void SpawnCopter()
         {
-            Instantiate(_copterPrefab).transform.position = _copterSpawnPoints.GetRandomPoint().position;
+            Enemy enemy = Instantiate(_copterPrefab);
+            enemy.transform.position = _copterSpawnPoints.GetRandomPoint().position;
             _remainingCopters--;
+
+            if (PlayerPrefs.GetInt(Prefs.CopterSpawned) != 1)
+            {
+                enemy.transform.position = _copterSpawnPoints.PointForFirstSpawning().position;
+                EnemySpawnedFirst?.Invoke(enemy.Visual, enemy.EnemyType);
+            }
+            PlayerPrefs.SetInt(Prefs.CopterSpawned, 1);
         }
         private void SetRemainings()
         {

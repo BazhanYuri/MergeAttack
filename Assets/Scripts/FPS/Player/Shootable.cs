@@ -32,6 +32,7 @@ namespace FPS
             _playerInput.TapEnded += StopShoot;
             GameManager.Instance.GameplayStarted += SetUpWeapon;
             GameManager.LevelCompleted += StopShoot;
+            FirstEnemySeen.StartedCinematic += StopShoot;
         }
         private void OnDisable()
         {
@@ -39,6 +40,7 @@ namespace FPS
             _playerInput.TapEnded -= StopShoot;
             GameManager.Instance.GameplayStarted -= SetUpWeapon;
             GameManager.LevelCompleted -= StopShoot;
+            FirstEnemySeen.StartedCinematic -= StopShoot;
         }
 
         private void SetUpWeapon()
