@@ -8,17 +8,23 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField] private LevelsInfo _levelsInfo;
+
     [SerializeField] private CanvasGroup _FPSUI;
     [SerializeField] private CanvasGroup _levelCompletedUI;
 
     [SerializeField] private Transform _mergeStage;
     [SerializeField] private EnemiesKilledIndicator _killedIndicator;
 
+    private LevelVisual _levelVisual;
+
     private int _currentLevel;
     private int _countOfAllEnemies;
 
+    public LevelInfo CurrentLevelInfo { get => _levelsInfo.LevelInfos[_currentLevel]; }
     public int CurrentLevel { get => _currentLevel; }
     public int CountOfAllEnemies { get => _countOfAllEnemies; }
+    public LevelVisual LevelVisual { get => _levelVisual;}
 
     public event Action GameplayStarted;
     public static event Action LevelCompleted;
@@ -41,10 +47,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _currentLevel = PlayerPrefs.GetInt(Prefs.CurrentLevel, 0);
+
+        _levelVisual = Instantiate(_levelsInfo.LevelInfos[_currentLevel].LevelVisualPrefab);
         Instance = this;
     }
 
 
+    
     public void NextLevel()
     {
         _currentLevel++;

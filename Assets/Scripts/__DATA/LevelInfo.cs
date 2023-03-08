@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LevelInfo : ScriptableObject
 {
+    public FPS.LevelVisual LevelVisualPrefab;
     public int SoldierCount;
     public int DronsCount;
     public int JahernautsCount;

@@ -10,21 +10,25 @@ namespace FPS
         [SerializeField] private MergeInfoContainer _mergeInfoContainer;
         [SerializeField] private Weapon[] _weapons;
         [SerializeField] private BulletsData _bulletsData;
-
         [SerializeField] private Arsenal _arsenal;
-
 
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private ShootHitEffect _shootHitEffectPrefab;
         [SerializeField] private HitPointer _hitPointerUI;
         [SerializeField] private TextMeshProUGUI _ammoCountText;
 
+        [SerializeField] private ParticleSystem _shootHoleParticle;
+
         private int _weaponIndex = -1;
-
-
         private int _ammoCount;
 
         private bool _isShooting;
+
+
+
+
+
+
 
         private void Start()
         {
@@ -122,7 +126,10 @@ namespace FPS
                     ShowPointer(hit.point, hitType);
                     PlayHitSound(hitType);
                 }
-
+                else
+                {
+                    Instantiate(_shootHoleParticle).transform.position = hit.point;
+                }
 
             }
 

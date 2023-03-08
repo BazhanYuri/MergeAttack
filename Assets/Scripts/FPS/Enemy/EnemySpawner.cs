@@ -13,7 +13,6 @@ namespace FPS
     }
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private LevelsInfo _levelsInfo;
         [SerializeField] private Soldier _soldierPrefab;
         [SerializeField] private Soldier _jagernautPrefab;
 
@@ -21,8 +20,8 @@ namespace FPS
         [SerializeField] private Enemy _copterPrefab;
 
 
-        [SerializeField] private SpawnPoints _soldierSpawnPoints;
-        [SerializeField] private SpawnPoints _copterSpawnPoints;
+        private SpawnPoints _soldierSpawnPoints;
+        private SpawnPoints _copterSpawnPoints;
 
 
         public static event System.Action<Transform, EnemyType> EnemySpawnedFirst;
@@ -154,7 +153,10 @@ namespace FPS
         }
         private void SetRemainings()
         {
-            LevelInfo info = _levelsInfo.LevelInfos[GameManager.Instance.CurrentLevel];
+            LevelInfo info = GameManager.Instance.CurrentLevelInfo;
+
+            _soldierSpawnPoints = GameManager.Instance.LevelVisual.SoldierSpawnPoints;
+            _copterSpawnPoints = GameManager.Instance.LevelVisual.CopterSpawnPoints;
 
             _remainingSoldiers = info.SoldierCount;
             _remainingJahegnauts = info.JahernautsCount;
