@@ -153,8 +153,10 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
+    <Compile Include="Assets\PBR_Grass_Textures\Scripts\CameraFreeflight.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\FastIK\Documentation.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\SG2_Template_URP.txt" />
