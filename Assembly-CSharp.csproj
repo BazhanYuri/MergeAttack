@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Merge\BuyButton.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\PBR_Grass_Textures\Scripts\CameraFreeflight.cs" />
     <Compile Include="Assets\Scripts\FPS\Camera\CameraVisualEffects.cs" />
     <Compile Include="Assets\Scripts\Effects\ShootHitEffect.cs" />
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKFabric.cs" />
@@ -153,7 +154,6 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
-    <Compile Include="Assets\PBR_Grass_Textures\Scripts\CameraFreeflight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
@@ -260,6 +260,7 @@
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Standard PBS\TCP2_Standard PBS Outline Blended.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_Sketch.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Legacy\Include\TCP2_Outline_SM2.shader" />
+    <None Include="Assets\Ground materials FD\Information package.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_Aura2.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\Water\Reflection.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\Water\Lava.shader" />
@@ -284,6 +285,7 @@
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Standard PBS\TCP2_Standard PBS (Specular).shader" />
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
     <None Include="Assets\JMO Assets\WarFX\!WarFX Readme.txt" />
+    <None Include="Assets\SkySeries Freebie\Hdri setup.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Legacy\Variants Base\TCP2_Mobile_Outline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Ciconia Studio\Shaders\Standard Shaders\BuiltIn\CS_Lite Standard (Specular setup) Opaque.shader" />
