@@ -154,6 +154,7 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
+    <Compile Include="Assets\SkyboxFog\Plugins\MouseLookSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
@@ -188,6 +189,7 @@
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\Default\Old School.shader" />
     <None Include="Assets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\SkyboxFog\Instructions.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_Dissolve.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Standard PBS\TCP2_Standard PBS Outline Blended (Specular).shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\SG2\Animated Dissolve.shader" />
@@ -203,6 +205,7 @@
     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\SG2_Template_Default.txt" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\Default\Snow Accumulation.shader" />
+    <None Include="Assets\SkyboxFog\license.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Legacy\TCP2_OutlineOnly Blended.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_NdotL Stylization.txt" />
@@ -314,6 +317,7 @@
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_Specular.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Remaster\CFXR Assets\Shaders\CFXR Particle Distortion.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders Generated\Examples\SG2\Detail Texture.shader" />
+    <None Include="Assets\SkyboxFog\Shaders\SkyboxFog.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders\Hybrid\TCP2 Hybrid Shader Outline.shader" />
     <None Include="Assets\JMO Assets\Toony Colors Pro\Shader Templates 2\Modules\Module_Reflection.txt" />

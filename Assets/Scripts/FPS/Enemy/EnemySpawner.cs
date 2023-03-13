@@ -128,12 +128,12 @@ namespace FPS
         private void SpawnDron()
         {
             Enemy enemy = Instantiate(_dronPrefab);
-            enemy.transform.position = _soldierSpawnPoints.GetRandomPoint().position;
+            enemy.transform.position = _copterSpawnPoints.GetRandomPoint().position;
             _remainingDrons--;
 
             if (PlayerPrefs.GetInt(Prefs.DronSpawned) != 1)
             {
-                enemy.transform.position = _soldierSpawnPoints.PointForFirstSpawning().position;
+                enemy.transform.position = _copterSpawnPoints.PointForFirstSpawning().position;
                 EnemySpawnedFirst?.Invoke(enemy.Visual, enemy.EnemyType);
             }
             PlayerPrefs.SetInt(Prefs.DronSpawned, 1);

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4401c5ace47f347beef2f4496ae0d7, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
+  LevelVisualPrefab: {fileID: -8239098436850066348, guid: 98c5de6afe823eb4d982abb8fe6943d4, type: 3}
   SoldierCount: 5
-  DronsCount: 10
+  DronsCount: 6
   JahernautsCount: 3
   CoptersCount: 0
   MinTimeToSpawn: 2
