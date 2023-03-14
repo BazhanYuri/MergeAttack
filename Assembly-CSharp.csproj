@@ -146,6 +146,7 @@
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\FreeCamera.cs" />
     <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
     <Compile Include="Assets\Scripts\Merge\ItemUI.cs" />
+    <Compile Include="Assets\SkyboxFog\Plugins\MouseLookSimple.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\Data\Weapon.cs" />
@@ -154,7 +155,6 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
-    <Compile Include="Assets\SkyboxFog\Plugins\MouseLookSimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
@@ -905,9 +905,6 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
@@ -926,9 +923,6 @@
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -937,6 +931,12 @@
     </Reference>
     <Reference Include="Unity.Recorder">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

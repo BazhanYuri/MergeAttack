@@ -10,11 +10,11 @@ namespace FPS
 
         private void Start()
         {
-            GameManager.Instance.GameplayStarted += StartRepairHealth;
+            GameManager.GameplayStarted += StartRepairHealth;
         }
         private void OnDisable()
         {
-            GameManager.Instance.GameplayStarted -= StartRepairHealth;
+            GameManager.GameplayStarted -= StartRepairHealth;
         }
         private void StartRepairHealth()
         {

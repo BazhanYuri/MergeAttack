@@ -9,15 +9,27 @@ public class MergeInfoContainer : MonoBehaviour
     [SerializeField] private Alert _ammoAlert;
 
 
-    private int _choosedWeaponIndex = - 1;
-    private int _choosedAmmoIndex = -1;
-    private int _choosedExplosivesIndex = -1;
+    private Item _choosedWeaponIndex =null;
+    private Item _choosedAmmoIndex = null;
+    private Item _choosedExplosivesIndex = null;
 
-    public int ChoosedWeaponIndex { get => _choosedWeaponIndex; }
-    public int ChoosedAmmoIndex { get => _choosedAmmoIndex; }
-    public int ChoosedExplosivnesIndex { get => _choosedExplosivesIndex; }
+    public Item ChoosedWeaponIndex { get => _choosedWeaponIndex; }
+    public Item ChoosedAmmoIndex { get => _choosedAmmoIndex; }
+    public Item ChoosedExplosivnesIndex { get => _choosedExplosivesIndex; }
 
 
+
+
+
+
+    private void OnEnable()
+    {
+        GameManager.GameplayStarted += DeleteChoosedWeapons;
+    }
+    private void OnDisable()
+    {
+        GameManager.GameplayStarted -= DeleteChoosedWeapons;
+    }
 
     public bool IsAllEquiped()
     {
@@ -25,7 +37,7 @@ public class MergeInfoContainer : MonoBehaviour
     }
     private bool IsWeaponEquiped()
     {
-        if (ChoosedWeaponIndex == -1)
+        if (ChoosedWeaponIndex == null)
         {
             _weaponAlert.ShowAlert();
             return false;
@@ -34,7 +46,7 @@ public class MergeInfoContainer : MonoBehaviour
     }
     private bool IsAmmoEquiped()
     {
-        if (ChoosedAmmoIndex == -1)
+        if (ChoosedAmmoIndex == null)
         {
             _ammoAlert.ShowAlert();
             return false;
@@ -43,16 +55,24 @@ public class MergeInfoContainer : MonoBehaviour
     }
 
 
-    public void SetChoosedWeaponIndex(int indexOfWeapon)
+    public void SetChoosedWeapon(Item item)
     {
-        _choosedWeaponIndex = indexOfWeapon;
+        _choosedWeaponIndex = item;
     }
-    public void SetChoosedAmmoIndex(int indexOfAmmo)
+    public void SetChoosedAmmo(Item item)
     {
-        _choosedAmmoIndex = indexOfAmmo;
+        _choosedAmmoIndex = item;
     }
-    public void SetExplosivnesIndex(int explosivesIndex)
+    public void SetExplosivnes(Item item)
     {
-        _choosedExplosivesIndex = explosivesIndex;
+        _choosedExplosivesIndex = item;
+    }
+
+
+    private void DeleteChoosedWeapons()
+    {
+        _choosedWeaponIndex?.CurrentCell.ClearItem();
+        _choosedAmmoIndex?.CurrentCell.ClearItem();
+        _choosedExplosivesIndex?.CurrentCell.ClearItem();
     }
 }

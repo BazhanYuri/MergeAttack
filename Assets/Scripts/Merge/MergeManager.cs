@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
+using System;
 
 namespace Merge
 {
@@ -17,6 +19,7 @@ namespace Merge
         [SerializeField] private BuyButton _weaponBuy;
         [SerializeField] private BuyButton _ammoBuy;
 
+
         private bool _isCanBuyWeapon = true;
         private bool _isCanBuyAmmo = true;
 
@@ -26,11 +29,17 @@ namespace Merge
         {
             _weaponBuy.Button.onClick.AddListener(TryBuyWeapon);
             _ammoBuy.Button.onClick.AddListener(TryBuyAmmunation);
+            EditorApplication.quitting += Quit;
+
         }
+
+       
+
         private void OnDisable()
         {
             _weaponBuy.Button.onClick.RemoveListener(TryBuyWeapon);
             _ammoBuy.Button.onClick.RemoveListener(TryBuyAmmunation);
+            EditorApplication.quitting -= Quit;
         }
 
 
@@ -38,6 +47,7 @@ namespace Merge
 
         private void Start()
         {
+            LoadWeapons();
             UpdateButtonStates();
         }
         public void TryBuyWeapon()
@@ -134,11 +144,14 @@ namespace Merge
             return true;
         }
 
+
+
+        private Item _justInstantiatedItem;
         private void IntantiateItem(Item itemPrefab)
         {
             SoundManager.Instance.ItemBought();
             Item item = Instantiate(itemPrefab);
-
+            _justInstantiatedItem = item;
             for (int i = 0; i < _grid.rows.Length; i++)
             {
                 for (int j = 0; j < _grid.rows[i].row.Length; j++)
@@ -161,7 +174,99 @@ namespace Merge
                     }
                 }
             }
+
+
         }
+
+        private void LoadWeapons()
+        {
+            int index = PlayerPrefs.GetInt(Prefs.CountOfItems);
+            print("Index is " + index);
+
+            for (int i = 0; i < index; i++)
+            {
+                LoadItem(i);
+            }
+        }
+        private void LoadItem(int index)
+        {
+            int type = PlayerPrefs.GetInt(Prefs.Items + index.ToString() + " type");
+            int improveIndex = PlayerPrefs.GetInt(Prefs.Items + index.ToString() + " index");
+            print(type);
+            switch ((ItemType)type)
+            {
+                case ItemType.Firearms:
+                    IntantiateItem(_weponPrefab);
+                    break;
+                case ItemType.Explosives:
+                    IntantiateItem(_explosinablePrefab);
+                    break;
+                case ItemType.Ammo:
+                    IntantiateItem(_ammoPrefab);
+                    break;
+                default:
+                    break;
+            }
+
+
+            _justInstantiatedItem.ItemMerge.SetLevel(improveIndex);
+        }
+
+
+
+        private void OnApplicationQuit()
+        {
+            SaveWeapons();
+        }
+        private void SaveWeapons()
+        {
+            int index = 0;
+
+            DeleteSaves();
+            for (int i = 0; i < _grid.rows.Length; i++)
+            {
+                for (int j = 0; j < _grid.rows[i].row.Length; j++)
+                {
+                    Item item = _grid.rows[i].row[j].CurrentItem;
+
+                    if (item == null)
+                    {
+                        continue;
+                    }
+
+                    PlayerPrefs.SetInt(Prefs.Items + index.ToString() + " type", (int)item.ItemType);
+                    PlayerPrefs.SetInt(Prefs.Items + index.ToString() + " index", item.ItemMerge.Index);
+                    PlayerPrefs.SetString(Prefs.Items + index.ToString() + " cellName", item.CurrentCell.name);
+                    index++;
+                }
+            }
+
+            PlayerPrefs.SetInt(Prefs.CountOfItems, index);
+        }
+
+        private void DeleteSaves()
+        {
+           
+            int index = PlayerPrefs.GetInt(Prefs.CountOfItems);
+
+            for (int i = 0; i < index; i++)
+            {
+                PlayerPrefs.DeleteKey(Prefs.Items + i.ToString() + " type");
+                PlayerPrefs.DeleteKey(Prefs.Items + i.ToString() + " index");
+                PlayerPrefs.DeleteKey(Prefs.Items + i.ToString() + " cellName");
+            }
+        }
+        
+            public void Quit()
+            {
+            #if UNITY_STANDALONE
+                    Application.Quit();
+            #endif
+            #if UNITY_EDITOR
+                            UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+            }
+
     }
 }
 

@@ -34,7 +34,7 @@ namespace FPS
         {
             _playerInput.TapStart += StartShooting;
             _playerInput.TapEnded += StopShoot;
-            GameManager.Instance.GameplayStarted += SetUpWeapon;
+            GameManager.GameplayStarted += SetUpWeapon;
             GameManager.LevelCompleted += StopShoot;
             FirstEnemySeen.StartedCinematic += StopShoot;
         }
@@ -42,17 +42,17 @@ namespace FPS
         {
             _playerInput.TapStart -= StartShooting;
             _playerInput.TapEnded -= StopShoot;
-            GameManager.Instance.GameplayStarted -= SetUpWeapon;
+            GameManager.GameplayStarted -= SetUpWeapon;
             GameManager.LevelCompleted -= StopShoot;
             FirstEnemySeen.StartedCinematic -= StopShoot;
         }
 
         private void SetUpWeapon()
         {
-            _weaponIndex = _mergeInfoContainer.ChoosedWeaponIndex;
-            _weapons[_weaponIndex].gameObject.SetActive(true);
+            _weaponIndex = _mergeInfoContainer.ChoosedWeaponIndex.ItemMerge.Index;
+           _weapons[_weaponIndex].gameObject.SetActive(true);
 
-            _ammoCount = _bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex];
+            _ammoCount = _bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex.ItemMerge.Index];
             UpdateAmmoCountUI();
 
             SoundManager.Instance.WeaponTook();

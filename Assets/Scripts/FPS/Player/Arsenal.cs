@@ -25,11 +25,11 @@ namespace FPS
 
         private void Start()
         {
-            GameManager.Instance.GameplayStarted += ChooseWeapon;
+            GameManager.GameplayStarted += ChooseWeapon;
         }
         private void OnDisable()
         {
-            GameManager.Instance.GameplayStarted -= ChooseWeapon;
+            GameManager.GameplayStarted -= ChooseWeapon;
         }
 
 
@@ -37,7 +37,7 @@ namespace FPS
         {
             _currentWeaponType = WeaponType.None;
             ShowArcenal(_explosibleRoot, _weaponRoot, WeaponType.Explosinable);
-            _explosibleRoot.GetComponentInChildren<Explosinable>().SetUpExplo(_mergeInfoContainer.ChoosedExplosivnesIndex);
+            _explosibleRoot.GetComponentInChildren<Explosinable>().SetUpExplo(_mergeInfoContainer.ChoosedExplosivnesIndex.ItemMerge.Index);
         }
         public void ChooseWeapon()
         {

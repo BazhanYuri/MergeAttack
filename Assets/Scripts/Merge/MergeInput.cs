@@ -21,11 +21,11 @@ namespace Merge
 
         private void OnEnable()
         {
-            GameManager.Instance.GameplayStarted += DisableControl;
+            GameManager.GameplayStarted += DisableControl;
         }
         private void OnDisable()
         {
-            GameManager.Instance.GameplayStarted -= DisableControl;
+            GameManager.GameplayStarted -= DisableControl;
         }
 
         private void Update()
@@ -213,13 +213,13 @@ namespace Merge
                     switch (item.ItemType)
                     {
                         case ItemType.Firearms:
-                            _mergeInfoContainer.SetChoosedWeaponIndex(index);
+                            _mergeInfoContainer.SetChoosedWeapon(item);
                             break;
                         case ItemType.Explosives:
-                            _mergeInfoContainer.SetExplosivnesIndex(index);
+                            _mergeInfoContainer.SetExplosivnes(item);
                             break;
                         case ItemType.Ammo:
-                            _mergeInfoContainer.SetChoosedAmmoIndex(index);
+                            _mergeInfoContainer.SetChoosedAmmo(item);
                             break;
                         default:
                             break;

@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
     {
     }
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
     }

@@ -39,11 +39,11 @@ namespace FPS
 
         private void Start()
         {
-            GameManager.Instance.GameplayStarted += StartSpawnEnemies;
+            GameManager.GameplayStarted += StartSpawnEnemies;
         }
         private void OnDisable()
         {
-            GameManager.Instance.GameplayStarted -= StartSpawnEnemies;
+            GameManager.GameplayStarted -= StartSpawnEnemies;
         }
 
 

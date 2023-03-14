@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public int CountOfAllEnemies { get => _countOfAllEnemies; }
     public LevelVisual LevelVisual { get => _levelVisual;}
 
-    public event Action GameplayStarted;
+    public static event Action GameplayStarted;
     public static event Action LevelCompleted;
 
 

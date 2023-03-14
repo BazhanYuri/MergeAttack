@@ -18,12 +18,12 @@ namespace FPS
         private void OnDisable()
         {
             _button.onClick.RemoveListener(TakeGranate);
-            GameManager.Instance.GameplayStarted -= CheckToShowButton;
+            GameManager.GameplayStarted -= CheckToShowButton;
         }
 
         private void Start()
         {
-            GameManager.Instance.GameplayStarted += CheckToShowButton;
+            GameManager.GameplayStarted += CheckToShowButton;
         }
 
         private void TakeGranate()
@@ -34,7 +34,7 @@ namespace FPS
         }
         private void CheckToShowButton()
         {
-            if (_mergeInfoContainer.ChoosedExplosivnesIndex < 0)
+            if (_mergeInfoContainer.ChoosedExplosivnesIndex.ItemMerge.Index < 0)
             {
                 return;
             }

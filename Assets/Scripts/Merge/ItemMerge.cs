@@ -26,7 +26,11 @@ namespace Merge
             _index++;
             _skins[_index - 1].DOScale(Vector3.zero, 0.2f).OnComplete(() => ChangeVisual(_index));
         }
-
+        public void SetLevel(int index)
+        {
+            _index = index;
+            _skins[_index].DOScale(Vector3.zero, 0.2f).OnComplete(() => ChangeVisual(_index));
+        }
         private void ChangeVisual(int index)
         {
             for (int i = 0; i < _skins.Length; i++)

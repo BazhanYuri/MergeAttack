@@ -35,14 +35,14 @@ namespace FPS
 
         private void Start()
         {
-            GameManager.Instance.GameplayStarted += EnableControl;
+            GameManager.GameplayStarted += EnableControl;
             GameManager.LevelCompleted += DisableControl;
             FirstEnemySeen.StartedCinematic += DisableControl;
             FirstEnemySeen.EndedCinematic += EnableControl;
         }
         private void OnDisable()
         {
-            GameManager.Instance.GameplayStarted -= EnableControl;
+            GameManager.GameplayStarted -= EnableControl;
             GameManager.LevelCompleted -= DisableControl;
             FirstEnemySeen.StartedCinematic -= DisableControl;
             FirstEnemySeen.EndedCinematic -= EnableControl;
