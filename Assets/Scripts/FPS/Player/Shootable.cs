@@ -72,13 +72,13 @@ namespace FPS
         }
         private IEnumerator StartingShooting()
         {
-            yield return new WaitForSeconds(_weapons[_weaponIndex].StartShootDelay);
+            yield return new WaitForSeconds(_weapons[_weaponIndex].WeaponData.StartShootDelay);
             _isShooting = true;
 
             while (_ammoCount > 0)
             {
                 Shoot();
-                yield return new WaitForSeconds(_weapons[_weaponIndex].ShootDelay);
+                yield return new WaitForSeconds(_weapons[_weaponIndex].WeaponData.ShootDelay);
             }
         }
         private void Shoot()
@@ -91,7 +91,7 @@ namespace FPS
             {
                 if (hit.collider.TryGetComponent(out DamagablePart damagable))
                 {
-                    damagable.GetDamage(_weapons[_weaponIndex].Damage);
+                    damagable.GetDamage(_weapons[_weaponIndex].WeaponData.Damage);
                     HitType hitType = HitType.Head;
 
                     switch (damagable.PartType)
@@ -139,7 +139,7 @@ namespace FPS
             _ammoCount--;
             UpdateAmmoCountUI();
 
-            CameraVisualEffects.Instance.ShakeCamera(0.1f, 0.2f, _weapons[_weaponIndex].ShootDelay * 1f);
+            CameraVisualEffects.Instance.ShakeCamera(0.1f, 0.2f, _weapons[_weaponIndex].WeaponData.ShootDelay * 1f);
             SoundManager.Instance.Shoot(_weapons[_weaponIndex].ShootableType);
         }
         private void StopShoot()
@@ -150,7 +150,7 @@ namespace FPS
         private Vector3 GetAccuracy()
         {
             float randomAngle;
-            randomAngle = Random.Range(0f, 0.1f - (_weapons[_weaponIndex].PercentageOfAccuracy / 1000f));
+            randomAngle = Random.Range(0f, 0.1f - (_weapons[_weaponIndex].WeaponData.PercentageOfAccuracy / 1000f));
 
             return new Vector3(0.5F - randomAngle, 0.5F + randomAngle, 0);
         }
