@@ -73,11 +73,11 @@ namespace Merge
         }
         private void HideCanvas()
         {
-            _item.Canvas.HideCanvas();
+            _item.ItemUI.HideCanvas();
         }
         private void ShowCanvas()
         {
-            _item.Canvas.ShowCanvas();
+            _item.ItemUI.ShowCanvas();
         }
     }
 }

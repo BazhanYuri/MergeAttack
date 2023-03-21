@@ -181,7 +181,7 @@ namespace Merge
                     if (item.IsChoosed == false)
                     {
                         SoundManager.Instance.ItemSelected();
-                        item.Canvas.ChooseItem();
+                        item.ItemUI.ChooseItem();
 
                         switch (item.ItemType)
                         {
@@ -203,7 +203,7 @@ namespace Merge
                     }
                     else
                     {
-                        item.Canvas.UnchooseItem();
+                        item.ItemUI.UnchooseItem();
                         index = -1;
                     }
 
@@ -235,7 +235,7 @@ namespace Merge
             }
             if (item.GetHashCode() != temp.GetHashCode())
             {
-                item.Canvas.UnchooseItem();
+                item.ItemUI.UnchooseItem();
                 item.IsChoosed = false;
             }
         }

@@ -7,6 +7,7 @@ namespace FPS
 {
     public class Shootable : MonoBehaviour
     {
+        [SerializeField] private GameplayScreen _gameplayScreen;
         [SerializeField] private MergeInfoContainer _mergeInfoContainer;
         [SerializeField] private Weapon[] _weapons;
         [SerializeField] private BulletsData _bulletsData;
@@ -18,6 +19,10 @@ namespace FPS
         [SerializeField] private TextMeshProUGUI _ammoCountText;
 
         [SerializeField] private ParticleSystem _shootHoleParticle;
+
+
+        public static event System.Action OutOfAmmo;
+
 
         private int _weaponIndex = -1;
         private int _ammoCount;
@@ -52,7 +57,7 @@ namespace FPS
             _weaponIndex = _mergeInfoContainer.ChoosedWeaponIndex.ItemMerge.Index;
            _weapons[_weaponIndex].gameObject.SetActive(true);
 
-            _ammoCount = _bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex.ItemMerge.Index];
+            _ammoCount = (int)(_bulletsData.AmmoCounts[_mergeInfoContainer.ChoosedAmmoIndex.ItemMerge.Index] * _weapons[_weaponIndex].WeaponData.IndexOfAmmo);
             UpdateAmmoCountUI();
 
             SoundManager.Instance.WeaponTook();
@@ -62,6 +67,7 @@ namespace FPS
         {
             if (_ammoCount <= 0)
             {
+                OutOfAmmo?.Invoke();
                 return;
             }
             if (_arsenal.CurrentWeaponType != WeaponType.Weapon)
@@ -72,20 +78,46 @@ namespace FPS
         }
         private IEnumerator StartingShooting()
         {
-            yield return new WaitForSeconds(_weapons[_weaponIndex].WeaponData.StartShootDelay);
-            _isShooting = true;
-
+            StartCoroutine(ShootDelay());
+            yield return new WaitUntil(() => _isShooting == true);
             while (_ammoCount > 0)
             {
                 Shoot();
-                yield return new WaitForSeconds(_weapons[_weaponIndex].WeaponData.ShootDelay);
+
+                float elapsedTime = 0;
+                float percentage = 0;
+                while (elapsedTime < _weapons[_weaponIndex].WeaponData.ShootDelay)
+                {
+                    elapsedTime += Time.deltaTime;
+                    percentage = elapsedTime / _weapons[_weaponIndex].WeaponData.ShootDelay;
+                    _gameplayScreen.SetPercentageOfShoot(percentage);
+                    yield return null;
+                }
             }
+        }
+        private IEnumerator ShootDelay()
+        {
+            float elapsedTime = 0;
+            float percentage;
+            while (true)
+            {
+                yield return null;
+                elapsedTime += Time.deltaTime;
+                percentage =  elapsedTime / _weapons[_weaponIndex].WeaponData.StartShootDelay;
+                _gameplayScreen.SetPercentageOfShoot(percentage);
+                if (elapsedTime > _weapons[_weaponIndex].WeaponData.StartShootDelay)
+                {
+                    break;
+                }
+            }
+            _isShooting = true;
         }
         private void Shoot()
         {
             ShootFireLightParticle();
             Ray ray = Camera.main.ViewportPointToRay(GetAccuracy());
             RaycastHit hit;
+            _gameplayScreen.SetPercentageOfShoot(0);
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -140,12 +172,13 @@ namespace FPS
             UpdateAmmoCountUI();
 
             CameraVisualEffects.Instance.ShakeCamera(0.1f, 0.2f, _weapons[_weaponIndex].WeaponData.ShootDelay * 1f);
-            SoundManager.Instance.Shoot(_weapons[_weaponIndex].ShootableType);
+            SoundManager.Instance.Shoot(_weapons[_weaponIndex].WeaponData.ShootableType);
         }
         private void StopShoot()
         {
             _isShooting = false;
             StopAllCoroutines();
+            _gameplayScreen.SetPercentageOfShoot(0);
         }
         private Vector3 GetAccuracy()
         {

@@ -33,16 +33,16 @@ namespace FPS
             switch (hitType)
             {
                 case HitType.Head:
-                    color = new Color(1, 0, 0, 0.7f);
+                    color = new Color(1, 0, 0, 0.9f);
                     break;
                 case HitType.Body:
-                    color = new Color(1, 0, 0, 0.7f);
+                    color = new Color(1, 0, 0, 0.9f);
                     break;
                 case HitType.ProtectedPart:
-                    color = new Color(0.7f, 0.7f, 0.7f, 0.8f);
+                    color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
                     break;
                 case HitType.Metal:
-                    color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
+                    color = new Color(0.0f, 0.0f, 0.0f, 0.9f);
                     break;
                 default:
                     break;

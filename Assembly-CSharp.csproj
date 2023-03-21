@@ -90,6 +90,7 @@
     <Compile Include="Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\FPS\UI\HitPointer.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Merge\UI\WeaponStats.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronExplosines.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKLook.cs" />
@@ -154,10 +155,12 @@
     <Compile Include="Assets\Scripts\FPS\SpawnPoints.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
+    <Compile Include="Assets\Scripts\__DATA\WeaponData.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
-    <Compile Include="Assets\Scripts\Merge\UI\WeaponStats.cs" />
-    <Compile Include="Assets\Scripts\__DATA\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\Merge\UI\AmmoStats.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\GameplayScreen.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\CompletedEnemyConter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />

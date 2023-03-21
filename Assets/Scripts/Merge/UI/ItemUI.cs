@@ -10,6 +10,8 @@ namespace Merge
         [SerializeField] private Image _corners;
         [SerializeField] private Color _choosedColor;
 
+        public event System.Action<bool> Choosed;
+
 
         private Color _standartColor;
 
@@ -17,11 +19,13 @@ namespace Merge
         {
             _corners.color = _choosedColor;
             _corners.pixelsPerUnitMultiplier = 0.3f;
+            Choosed?.Invoke(true);
         }
         public void UnchooseItem()
         {
             _corners.color = _standartColor;
             _corners.pixelsPerUnitMultiplier = 0.4f;
+            Choosed?.Invoke(false);
         }
 
         public void HideCanvas()

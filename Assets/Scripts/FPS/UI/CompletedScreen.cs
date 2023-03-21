@@ -12,6 +12,8 @@ namespace FPS
 
 
 
+
+
         private void Start()
         {
             _nextLevelButton.onClick.AddListener(GameManager.Instance.NextLevel);

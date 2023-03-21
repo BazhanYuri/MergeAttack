@@ -10,6 +10,7 @@ namespace FPS
 
         public static event Action DeadEnemy;
         public static event Action<EnemyType> DeadEnemyWithType;
+        public static event Action<int> DeadEnemyWithReward;
 
 
 
@@ -17,6 +18,7 @@ namespace FPS
         {
             DeadEnemy?.Invoke();
             DeadEnemyWithType?.Invoke(_enemy.EnemyType);
+            DeadEnemyWithReward?.Invoke(_enemy.EnemyInfo.Reward);
             InvokeSound();
         }
         private void InvokeSound()

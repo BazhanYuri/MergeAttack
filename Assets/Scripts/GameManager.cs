@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         _currentLevel = PlayerPrefs.GetInt(Prefs.CurrentLevel, 0);
 
         _levelVisual = Instantiate(_levelsInfo.LevelInfos[_currentLevel].LevelVisualPrefab);
+        RenderSettings.skybox = _levelsInfo.LevelInfos[_currentLevel].SkyBox;
         Instance = this;
     }
 

@@ -11,6 +11,10 @@ namespace FPS
         [SerializeField] private Button _button;
 
 
+
+        public static event System.Action ExpoEquiped;
+
+
         private void OnEnable()
         {
             _button.onClick.AddListener(TakeGranate);
@@ -34,11 +38,16 @@ namespace FPS
         }
         private void CheckToShowButton()
         {
+            if (_mergeInfoContainer.ChoosedExplosivnesIndex == null)
+            {
+                return;
+            }
             if (_mergeInfoContainer.ChoosedExplosivnesIndex.ItemMerge.Index < 0)
             {
                 return;
             }
             _button.gameObject.SetActive(true);
+            ExpoEquiped?.Invoke();
         }
     }
 }

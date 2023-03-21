@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.EditorResources", "Unity.PlayerPrefsEditor.EditorResources.csproj", "{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{E72DBDE2-58ED-380B-B635-2001AAEA27D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A1CDB9-FD7C-BD9A-B287-D90C928F384C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E72DBDE2-58ED-380B-B635-2001AAEA27D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E72DBDE2-58ED-380B-B635-2001AAEA27D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E72DBDE2-58ED-380B-B635-2001AAEA27D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E72DBDE2-58ED-380B-B635-2001AAEA27D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

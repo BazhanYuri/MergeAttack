@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyInfo : ScriptableObject
 {
     public float DamagePerHit;
-
+    public int Reward;
 
     public int TimeToStartShoot;
     public int MinTimeToMove;

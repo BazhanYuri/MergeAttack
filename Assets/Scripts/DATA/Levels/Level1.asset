@@ -19,3 +19,4 @@ MonoBehaviour:
   CoptersCount: 0
   MinTimeToSpawn: 0
   MaxTimeToSpawn: 1
+  SkyBox: {fileID: 2100000, guid: d44a8316999f338409243d521c228bf9, type: 2}

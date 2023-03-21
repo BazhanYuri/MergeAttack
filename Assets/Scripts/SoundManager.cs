@@ -147,23 +147,23 @@ public class SoundManager : MonoBehaviour
         PlaySound(_jaherDead, 3, parent);
     }
 
-    public void Shoot(FPS.ShootableType shootableType)
+    public void Shoot(ShootableType shootableType)
     {
         switch (shootableType)
         {
-            case FPS.ShootableType.Pistol:
+            case ShootableType.Pistol:
                 PlaySound(_pistolShoot, 3);
                 break;
-            case FPS.ShootableType.Revolver:
+            case ShootableType.Revolver:
                 PlaySound(_revolverShoot, 3);
                 break;
-            case FPS.ShootableType.Uzi:
+            case ShootableType.Uzi:
                 UziSound();
                 break;
-            case FPS.ShootableType.AK47:
+            case ShootableType.AK47:
                 AK47Sound();
                 break;
-            case FPS.ShootableType.Machinegun:
+            case ShootableType.Machinegun:
                 MachineGunSound();
                 break;
             default:

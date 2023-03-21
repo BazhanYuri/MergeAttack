@@ -12,4 +12,5 @@ public class LevelInfo : ScriptableObject
     public int CoptersCount;
     public float MinTimeToSpawn;
     public float MaxTimeToSpawn;
+    public Material SkyBox;
 }

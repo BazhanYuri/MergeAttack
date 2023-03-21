@@ -138,7 +138,7 @@ MonoBehaviour:
   _itemType: 0
   _itemMovement: {fileID: 7160761923186927981}
   _itemMerge: {fileID: 5848755561387830306}
-  _canvas: {fileID: 1003212350693251461}
+  _itemUI: {fileID: 1003212350693251461}
 --- !u!1 &2597397430347991108
 GameObject:
   m_ObjectHideFlags: 0

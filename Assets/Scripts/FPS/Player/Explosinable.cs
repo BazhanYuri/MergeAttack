@@ -25,6 +25,7 @@ namespace FPS
 
         private bool _isExploded = false;
 
+        public static event System.Action NoGranate;
         public Rigidbody Rigidbody { get => _rigidbody; }
 
 
@@ -53,7 +54,8 @@ namespace FPS
             Explode();
         }
         private void Explode()
-        { 
+        {
+            NoGranate?.Invoke();
             Instantiate(_currentInfo.ExplosionParticle).transform.position = transform.position;
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _currentInfo.ExplosinableRadius);
