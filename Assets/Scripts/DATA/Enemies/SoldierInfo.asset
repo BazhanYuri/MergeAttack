@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SoldierInfo
   m_EditorClassIdentifier: 
   DamagePerHit: 0.1
+  Reward: 100
   TimeToStartShoot: 7
   MinTimeToMove: 1
   MaxTimeToMove: 4
@@ -20,3 +21,4 @@ MonoBehaviour:
   MaxCountOfShoot: 15
   MinDelayOfShoot: 0.3
   MaxDelayOfShoot: 0.8
+  BulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}

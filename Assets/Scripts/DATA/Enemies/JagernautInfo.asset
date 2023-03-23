@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JagernautInfo
   m_EditorClassIdentifier: 
   DamagePerHit: 0
+  Reward: 400
   TimeToStartShoot: 5
   MinTimeToMove: 1
   MaxTimeToMove: 4
@@ -20,3 +21,4 @@ MonoBehaviour:
   MaxCountOfShoot: 40
   MinDelayOfShoot: 0.1
   MaxDelayOfShoot: 0.2
+  BulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}

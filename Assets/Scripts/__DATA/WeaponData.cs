@@ -19,6 +19,7 @@ public class WeaponData : ScriptableObject
     [SerializeField, Range(0, 100)] private int _percentageOfAccuracy;
     [SerializeField] private float _indexOfAmmo;
     [SerializeField] private ShootableType _shootableType;
+    [SerializeField] private Transform _bulletPrefab;
 
 
 
@@ -28,4 +29,5 @@ public class WeaponData : ScriptableObject
     public int PercentageOfAccuracy { get => _percentageOfAccuracy; }
     public ShootableType ShootableType { get => _shootableType; }
     public float IndexOfAmmo { get => _indexOfAmmo;}
+    public Transform BulletPrefab { get => _bulletPrefab; }
 }

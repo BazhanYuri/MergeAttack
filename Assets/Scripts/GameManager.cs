@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 100; i++)
         {
-            yield return new WaitForSecondsRealtime(0.005f);
+            yield return null;
             canvasGroup.alpha = i / 100f;
         }
         canvasGroup.interactable = true;
@@ -108,5 +108,6 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(HideUI(_FPSUI));
         StartCoroutine(ShowUI(_levelCompletedUI));
+        _levelCompletedUI.GetComponent<CompletedScreen>().ShowRewards();
     }
 }

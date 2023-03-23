@@ -18,3 +18,4 @@ MonoBehaviour:
   _percentageOfAccuracy: 92
   _indexOfAmmo: 5
   _shootableType: 2
+  _bulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}

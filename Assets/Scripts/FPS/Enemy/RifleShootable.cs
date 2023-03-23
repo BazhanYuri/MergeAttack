@@ -8,7 +8,6 @@ namespace FPS
     public class RifleShootable : EnemyShootable
     {
         [SerializeField] private SoldierAnimationController _soldierAnimationController;
-        [SerializeField] private Transform _shootPoint;
 
 
         protected override void SetMoving()
@@ -29,16 +28,18 @@ namespace FPS
         }
         protected override void Shoot()
         {
+            base.Shoot();
+
             if (_soldierAnimationController != null)
             {
                 _soldierAnimationController.Shoot();
             }
             SpawnParticle();
-            base.Shoot();
         }
         private void SpawnParticle()
         {
             Instantiate(_shootParticle).transform.position = _shootPoint.position;
+            _bulletTrailEffect.ShowTrail(_inf.BulletPrefab, _shootPoint.position, Player.Instance.transform.position + Random.insideUnitSphere);
         }
     }
 }

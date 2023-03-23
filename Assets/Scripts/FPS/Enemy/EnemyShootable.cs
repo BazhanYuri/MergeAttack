@@ -10,8 +10,10 @@ namespace FPS
     {
         [SerializeField] protected Enemy _enemy;
         [SerializeField] protected ParticleSystem _shootParticle;
+        [SerializeField] protected Transform _shootPoint;
 
 
+        protected BulletTrailEffect _bulletTrailEffect;
 
 
         protected EnemyInfo _inf;
@@ -28,6 +30,10 @@ namespace FPS
 
 
 
+        private void Awake()
+        {
+            _bulletTrailEffect = new BulletTrailEffect();
+        }
         private void Start()
         {
             _inf = _enemy.EnemyInfo;
@@ -41,10 +47,27 @@ namespace FPS
             {
                 SetMoving();
                 yield return new WaitForSeconds(Random.Range(_inf.MinTimeToMove, _inf.MaxTimeToMove));
-                yield return StartCoroutine(SetShooting());
+                if (CheckIsCanSeePlayer() == true)
+                {
+                    yield return StartCoroutine(SetShooting());
+                }
 
                 SetMoving();
             }
+        }
+        private bool CheckIsCanSeePlayer()
+        {
+            Ray ray = new Ray(_shootPoint.position, Player.Instance.transform.position + Vector3.up);
+            RaycastHit hit;
+
+            Debug.DrawLine(_shootPoint.position, Player.Instance.transform.position + Vector3.up, Color.red, 10, false);
+            Debug.DrawLine(_shootPoint.position, Player.Instance.transform.position + Vector3.up, Color.red, 10, true);
+            print("Drawed");
+            if (Physics.Raycast(ray, out hit))
+            {
+                return false;
+            }
+            return true;
         }
         protected virtual void SetMoving()
         {

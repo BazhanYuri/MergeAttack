@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CopterInfo
   m_EditorClassIdentifier: 
   DamagePerHit: 0.01
+  Reward: 0
   TimeToStartShoot: 1
   MinTimeToMove: 1
   MaxTimeToMove: 2
@@ -20,3 +21,4 @@ MonoBehaviour:
   MaxCountOfShoot: 20
   MinDelayOfShoot: 0.01
   MaxDelayOfShoot: 0.1
+  BulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}

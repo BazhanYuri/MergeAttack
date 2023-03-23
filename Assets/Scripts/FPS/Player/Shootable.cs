@@ -21,6 +21,8 @@ namespace FPS
         [SerializeField] private ParticleSystem _shootHoleParticle;
 
 
+        private BulletTrailEffect _bulletTrailEffect;
+
         public static event System.Action OutOfAmmo;
 
 
@@ -35,6 +37,10 @@ namespace FPS
 
 
 
+        private void Awake()
+        {
+            _bulletTrailEffect = new BulletTrailEffect();
+        }
         private void Start()
         {
             _playerInput.TapStart += StartShooting;
@@ -115,9 +121,12 @@ namespace FPS
         private void Shoot()
         {
             ShootFireLightParticle();
-            Ray ray = Camera.main.ViewportPointToRay(GetAccuracy());
+            Vector3 accuracy = GetAccuracy();
+            Ray ray = Camera.main.ViewportPointToRay(accuracy);
             RaycastHit hit;
             _gameplayScreen.SetPercentageOfShoot(0);
+
+            _bulletTrailEffect.ShowTrail(_weapons[_weaponIndex].WeaponData.BulletPrefab, _weapons[_weaponIndex].ShootPoint.position, ray.GetPoint(50));
 
             if (Physics.Raycast(ray, out hit))
             {

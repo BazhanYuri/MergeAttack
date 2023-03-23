@@ -93,12 +93,14 @@
     <Compile Include="Assets\Scripts\Merge\UI\WeaponStats.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronExplosines.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\Scripts\Merge\UI\AmmoStats.cs" />
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKLook.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleProcedualAnimation.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\ExplosivleThrow.cs" />
     <Compile Include="Assets\Scripts\Merge\StartTableEnemiesCount.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronDamagable.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\GameplayScreen.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Soldier\SoldierDead.cs" />
     <Compile Include="Assets\Scripts\MoneyManager.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Copter\CopterMovement.cs" />
@@ -156,11 +158,12 @@
     <Compile Include="Assets\Scripts\FPS\Enemy\EnemyDead.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Scripts\__DATA\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\FPS\UI\CompletedEnemyConter.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
-    <Compile Include="Assets\Scripts\Merge\UI\AmmoStats.cs" />
-    <Compile Include="Assets\Scripts\FPS\UI\GameplayScreen.cs" />
-    <Compile Include="Assets\Scripts\FPS\UI\CompletedEnemyConter.cs" />
+    <Compile Include="Assets\Scripts\UI\MoneyEffect.cs" />
+    <Compile Include="Assets\Scripts\UI\ExpoCointUI.cs" />
+    <Compile Include="Assets\Scripts\Effects\BulletTrailEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
@@ -542,8 +545,14 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity 2020.3.38f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\Plugins\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\Plugins\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity 2020.3.38f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

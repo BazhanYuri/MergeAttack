@@ -17,4 +17,6 @@ public class EnemyInfo : ScriptableObject
     public float MinDelayOfShoot;
     public float MaxDelayOfShoot;
 
+    public Transform BulletPrefab;
+
 }
