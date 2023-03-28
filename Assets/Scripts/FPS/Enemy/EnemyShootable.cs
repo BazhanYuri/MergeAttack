@@ -55,19 +55,31 @@ namespace FPS
                 SetMoving();
             }
         }
+
+        Ray ray;
         private bool CheckIsCanSeePlayer()
         {
-            Ray ray = new Ray(_shootPoint.position, Player.Instance.transform.position + Vector3.up);
-            RaycastHit hit;
+           Vector3 playerDir = (Player.Instance.transform.position - _shootPoint.position).normalized;
+            ray = new Ray(_shootPoint.position, playerDir);
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.green, 10);
 
-            Debug.DrawLine(_shootPoint.position, Player.Instance.transform.position + Vector3.up, Color.red, 10, false);
-            Debug.DrawLine(_shootPoint.position, Player.Instance.transform.position + Vector3.up, Color.red, 10, true);
-            print("Drawed");
+
+            RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
                 return false;
             }
             return true;
+        }
+        private void OnDrawGizmos()
+        {
+            RaycastHit hit;
+            Gizmos.color = Color.magenta;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Gizmos.DrawSphere(hit.point, 0.1f);
+            }
         }
         protected virtual void SetMoving()
         {

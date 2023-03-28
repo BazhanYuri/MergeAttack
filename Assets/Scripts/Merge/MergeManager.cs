@@ -33,8 +33,6 @@ namespace Merge
 
         }
 
-       
-
         private void OnDisable()
         {
             _weaponBuy.Button.onClick.RemoveListener(TryBuyWeapon);
@@ -42,29 +40,31 @@ namespace Merge
             EditorApplication.quitting -= Quit;
         }
 
-
-
-
         private void Start()
         {
             LoadWeapons();
             UpdateButtonStates();
         }
+
         public void TryBuyWeapon()
         {
             UpdateButtonStates();
             if (_isCanBuyWeapon == true)
             {
+                TutorSystem.GetInstance().InvokeTutor(TutorActivness.WeaponBought);
                 IntantiateItem(_weponPrefab);
                 MoneyManager.Instance.TakeMoney(_weaponBuy.Price);
                 UpdateButtonStates();
             }
         }
+
         public void TryBuyAmmunation()
         {
             UpdateButtonStates();
             if (_isCanBuyAmmo == true)
             {
+                TutorSystem.GetInstance().InvokeTutor(TutorActivness.AmmoBought);
+
                 if (ChooseRandomlyWeaponAmmo() == true)
                 {
                     IntantiateItem(_ammoPrefab);
@@ -77,10 +77,14 @@ namespace Merge
                 UpdateButtonStates();
             }
         }
+
         private bool ChooseRandomlyWeaponAmmo()
         {
             bool isAmmo = new System.Random().Next(0, 100) < _ammoRandomPercantage;
-
+            if (PlayerPrefs.GetInt(Prefs.TutorPassed, 0) != 1)
+            {
+                isAmmo = true;
+            }
             return isAmmo;
         }    
 
@@ -174,8 +178,6 @@ namespace Merge
                     }
                 }
             }
-
-
         }
 
         private void LoadWeapons()
@@ -207,8 +209,6 @@ namespace Merge
                 default:
                     break;
             }
-
-
             _justInstantiatedItem.ItemMerge.SetLevel(improveIndex);
         }
 

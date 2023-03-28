@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     {
         GameplayStarted?.Invoke();
         _mergeStage.gameObject.SetActive(false);
+        TutorSystem.GetInstance().InvokeTutor(TutorActivness.PlayPressed);
 
         StartCoroutine(ShowUI(_FPSUI));
     }

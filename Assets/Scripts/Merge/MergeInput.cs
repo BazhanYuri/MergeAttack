@@ -155,6 +155,7 @@ namespace Merge
                     else if (cell.CurrentItem.ItemMerge.Index == _slidedItem.ItemMerge.Index && cell.CurrentItem.ItemType == _slidedItem.ItemType)
                     {
                         cell.CurrentItem.ItemMerge.Merge(_slidedItem);
+                        TutorSystem.GetInstance().InvokeTutor(TutorActivness.AmmoMerged);
                         SoundManager.Instance.ItemMerged(_slidedItem.ItemMerge.Index);
                     }
                 }

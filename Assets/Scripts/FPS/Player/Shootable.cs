@@ -192,9 +192,11 @@ namespace FPS
         private Vector3 GetAccuracy()
         {
             float randomAngle;
-            randomAngle = Random.Range(0f, 0.1f - (_weapons[_weaponIndex].WeaponData.PercentageOfAccuracy / 1000f));
+            float accuracy = 0.5f - (_weapons[_weaponIndex].WeaponData.PercentageOfAccuracy / 100f) / 2;
+            accuracy /= 5;
+            randomAngle = Random.Range(-accuracy, accuracy);
 
-            return new Vector3(0.5F - randomAngle, 0.5F + randomAngle, 0);
+            return new Vector3(0.5F + randomAngle, 0.5F + randomAngle, 0);
         }
 
         private void UpdateAmmoCountUI()
