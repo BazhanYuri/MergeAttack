@@ -21,6 +21,8 @@ namespace FPS
         [SerializeField] private ParticleSystem _shootHoleParticle;
 
 
+        [SerializeField, Range(0, 1)] private float _minYScreenToShoot;
+
         private BulletTrailEffect _bulletTrailEffect;
 
         public static event System.Action OutOfAmmo;
@@ -69,8 +71,12 @@ namespace FPS
             SoundManager.Instance.WeaponTook();
         }
 
-        private void StartShooting()
+        private void StartShooting(Vector2 posPercent)
         {
+            if (posPercent.y < _minYScreenToShoot)
+            {
+                return;
+            }
             if (_ammoCount <= 0)
             {
                 OutOfAmmo?.Invoke();
@@ -183,7 +189,13 @@ namespace FPS
             CameraVisualEffects.Instance.ShakeCamera(0.1f, 0.2f, _weapons[_weaponIndex].WeaponData.ShootDelay * 1f);
             SoundManager.Instance.Shoot(_weapons[_weaponIndex].WeaponData.ShootableType);
         }
+
+
         private void StopShoot()
+        {
+            StopShoot(Vector2.zero);
+        }
+        private void StopShoot(Vector2 posPercent)
         {
             _isShooting = false;
             StopAllCoroutines();

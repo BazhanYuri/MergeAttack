@@ -8,6 +8,7 @@ namespace FPS
         [SerializeField] private Explosinable _explosinable;
         [SerializeField] private PlayerInput _playerInput;
         [SerializeField] private int _acceleration;
+        [SerializeField, Range(0, 1)] private float _minYScreenToShoot;
 
 
 
@@ -22,8 +23,12 @@ namespace FPS
        
 
         
-        private void Throw()
+        private void Throw(Vector2 percentTap)
         {
+            if (percentTap.y < _minYScreenToShoot)
+            {
+                return;
+            }
             if (_arsenal.CurrentWeaponType != WeaponType.Explosinable)
             {
                 return;

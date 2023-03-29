@@ -50,6 +50,8 @@ namespace FPS
 
         private IEnumerator StartExpo()
         {
+            _isExploded = true;
+            
             yield return new WaitForSeconds(_currentInfo.TimeToExplode);
             Explode();
         }
@@ -69,7 +71,6 @@ namespace FPS
             }
             _explosinableSound.PlayExplosionableSound(_expoType);
             transform.GetChild(0).gameObject.SetActive(false);
-            _isExploded = true;
             Destroy(gameObject, 5);
         }
     }

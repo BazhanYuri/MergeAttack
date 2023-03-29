@@ -26,8 +26,8 @@ namespace FPS
         [SerializeField] private int _xSpeed;
         [SerializeField] private int _ySpeed;
 
-        public event Action TapStart;
-        public event Action TapEnded;
+        public event Action<Vector2> TapStart;
+        public event Action<Vector2> TapEnded;
 
         private Vector2 _delta;
         private bool _isCanControl = false;
@@ -74,7 +74,7 @@ namespace FPS
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
-                        TapStart?.Invoke();
+                        TapStart?.Invoke(new Vector2(touch.position.x / Screen.width, touch.position.y / Screen.height));
                         break;
                     case TouchPhase.Moved:
                         GetDeltas(touch);
@@ -83,7 +83,7 @@ namespace FPS
                         _isDragging = false;
                         break;
                     case TouchPhase.Ended:
-                        TapEnded?.Invoke();
+                        TapEnded?.Invoke(new Vector2(touch.position.x / Screen.width, touch.position.y / Screen.height));
                         _isDragging = false;
                         break;
                     case TouchPhase.Canceled:

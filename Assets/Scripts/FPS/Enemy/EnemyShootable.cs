@@ -47,7 +47,7 @@ namespace FPS
             {
                 SetMoving();
                 yield return new WaitForSeconds(Random.Range(_inf.MinTimeToMove, _inf.MaxTimeToMove));
-                if (CheckIsCanSeePlayer() == true)
+                if (CheckIsCanSeePlayer() == true && Player.Instance.Hidden.IsSafe == false)
                 {
                     yield return StartCoroutine(SetShooting());
                 }
@@ -93,12 +93,19 @@ namespace FPS
 
             for (int i = 0; i < countOfShoot; i++)
             {
-                yield return new WaitForSeconds(Random.Range(_inf.MinDelayOfShoot, _inf.MaxDelayOfShoot));
-                Shoot();
+                if (Player.Instance.Hidden.IsSafe == false)
+                {
+                    yield return new WaitForSeconds(Random.Range(_inf.MinDelayOfShoot, _inf.MaxDelayOfShoot));
+                    Shoot();
+                }
             }
         }
         protected virtual void Shoot()
         {
+            if (Player.Instance.Hidden.IsSafe == true)
+            {
+                return;
+            }
             Player.Instance.Damagable.GetDamage(_inf.DamagePerHit);
             PlaySound();
             return;

@@ -19,7 +19,7 @@ RenderSettings:
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 46.6
-  m_LinearFogEnd: 150
+  m_LinearFogEnd: 500
   m_AmbientSkyColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -15433,6 +15433,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2077519959}
     - target: {fileID: 500547805633492269, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
+      propertyPath: _minYScreenToShoot
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 500547805633492269, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
       propertyPath: _mergeInfoContainer
       value: 
       objectReference: {fileID: 869220988}
@@ -15450,7 +15454,7 @@ PrefabInstance:
       objectReference: {fileID: 726406103}
     - target: {fileID: 1404889819738587327, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
       propertyPath: _hidden._hiddenPos.y
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 1404889819738587327, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
       propertyPath: _hidden._hiddenPos.z
@@ -15556,6 +15560,14 @@ PrefabInstance:
       propertyPath: _gameplayScreen
       value: 
       objectReference: {fileID: 1668947820}
+    - target: {fileID: 4657759226318349559, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
+      propertyPath: _minXScreenToShoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657759226318349559, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
+      propertyPath: _minYScreenToShoot
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4657759226318349559, guid: 9404af1beadff9d48a5136ab86a44f0b, type: 3}
       propertyPath: _shootHoleParticle
       value: 

@@ -11,8 +11,7 @@ namespace FPS
 
         public static Player Instance;
         public Damagable Damagable { get => _damagable;}
-
-
+        public Hidden Hidden { get => _hidden;}
 
         private void OnDisable()
         {

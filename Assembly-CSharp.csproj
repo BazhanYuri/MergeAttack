@@ -101,6 +101,7 @@
     <Compile Include="Assets\FastIK\Scripts\FastIK\FastIKLook.cs" />
     <Compile Include="Assets\FastIK\Scripts\Sample\SampleProcedualAnimation.cs" />
     <Compile Include="Assets\Scripts\FPS\Player\ExplosivleThrow.cs" />
+    <Compile Include="Assets\Scripts\UI\EventsButton.cs" />
     <Compile Include="Assets\Scripts\Merge\StartTableEnemiesCount.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronDamagable.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Assets\Scripts\Merge\Item.cs" />
     <Compile Include="Assets\Ciconia Studio\_Shared Files\Scripts\Demo\FreeCamera.cs" />
     <Compile Include="Assets\Scripts\Merge\MergeManager.cs" />
+    <Compile Include="Assets\Scripts\FPS\Player\Hidden.cs" />
     <Compile Include="Assets\Scripts\Merge\UI\ItemUI.cs" />
     <Compile Include="Assets\SkyboxFog\Plugins\MouseLookSimple.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
@@ -166,8 +168,6 @@
     <Compile Include="Assets\Scripts\FPS\UI\CompletedEnemyConter.cs" />
     <Compile Include="Assets\Scripts\FPS\Enemy\Dron\DronShootable.cs" />
     <Compile Include="Assets\Scripts\LevelVisual.cs" />
-    <Compile Include="Assets\Scripts\FPS\Player\Hidden.cs" />
-    <Compile Include="Assets\Scripts\UI\EventsButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
