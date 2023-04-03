@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8148ff9a0c5e0bc439bc246dc00378a9, type: 3}
   m_Name: 1. Pistol
   m_EditorClassIdentifier: 
-  _startShootDelay: 0.3
+  _startShootDelay: 20
   _shootDelay: 0.4
   _damage: 20
   _percentageOfAccuracy: 92

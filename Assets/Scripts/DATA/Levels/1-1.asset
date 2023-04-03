@@ -17,6 +17,6 @@ MonoBehaviour:
   DronsCount: 0
   JahernautsCount: 0
   CoptersCount: 0
-  MinTimeToSpawn: 1
-  MaxTimeToSpawn: 2
+  MinTimeToSpawn: 30
+  MaxTimeToSpawn: 30
   SkyBox: {fileID: 2100000, guid: d44a8316999f338409243d521c228bf9, type: 2}

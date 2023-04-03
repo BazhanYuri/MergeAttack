@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 1-3
   m_EditorClassIdentifier: 
   LevelVisualPrefab: {fileID: -8239098436850066348, guid: e80e9bd43b1e5f841a3f287a38cd54c0, type: 3}
-  SoldierCount: 5
-  DronsCount: 6
-  JahernautsCount: 3
+  SoldierCount: 50
+  DronsCount: 0
+  JahernautsCount: 15
   CoptersCount: 0
-  MinTimeToSpawn: 2
-  MaxTimeToSpawn: 5
+  MinTimeToSpawn: 0
+  MaxTimeToSpawn: 0
   SkyBox: {fileID: 2100000, guid: ff330f6226d1d44838ee63a8824f8def, type: 2}

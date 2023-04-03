@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 5. M60
   m_EditorClassIdentifier: 
   _startShootDelay: 0.3
-  _shootDelay: 0.15
-  _damage: 20
+  _shootDelay: 0.05
+  _damage: 40
   _percentageOfAccuracy: 92
   _indexOfAmmo: 3
   _shootableType: 4

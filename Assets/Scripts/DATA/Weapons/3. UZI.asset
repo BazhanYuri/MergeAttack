@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 3. UZI
   m_EditorClassIdentifier: 
   _startShootDelay: 0.3
-  _shootDelay: 0.2
-  _damage: 7
-  _percentageOfAccuracy: 60
+  _shootDelay: 0.08
+  _damage: 15
+  _percentageOfAccuracy: 85
   _indexOfAmmo: 5
   _shootableType: 2
   _bulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}

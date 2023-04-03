@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 4. AK47
   m_EditorClassIdentifier: 
   _startShootDelay: 0.3
-  _shootDelay: 0.3
-  _damage: 15
-  _percentageOfAccuracy: 92
+  _shootDelay: 0.15
+  _damage: 25
+  _percentageOfAccuracy: 95
   _indexOfAmmo: 2
   _shootableType: 3
   _bulletPrefab: {fileID: 173769707935529097, guid: e3e16356b869cee46aacff30216daa13, type: 3}
