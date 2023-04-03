@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4401c5ace47f347beef2f4496ae0d7, type: 3}
   m_Name: 2-1
   m_EditorClassIdentifier: 
-  LevelVisualPrefab: {fileID: -8239098436850066348, guid: 1c5a0a0830bc52d40b05a58ee908e6f1, type: 3}
+  LevelVisualPrefab: {fileID: -8239098436850066348, guid: 98c5de6afe823eb4d982abb8fe6943d4, type: 3}
   SoldierCount: 20
   DronsCount: 4
   JahernautsCount: 10

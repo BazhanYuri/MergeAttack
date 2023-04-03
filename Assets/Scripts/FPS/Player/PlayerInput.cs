@@ -86,15 +86,15 @@ namespace FPS
         {
             if (Input.touchCount > 0)
             {
-                //Touch touch = Input.GetTouch(0);
+                UnityEngine.Touch touch = Input.GetTouch(0);
 
-               /* switch (touch.phase)
+                switch (touch.phase)
                 {
                     case TouchPhase.Began:
                         TapStart?.Invoke(new Vector2(touch.position.x / Screen.width, touch.position.y / Screen.height));
                         break;
                     case TouchPhase.Moved:
-                        GetDeltas(touch);
+                        GetDeltas(touch.deltaPosition);
                         break;
                     case TouchPhase.Stationary:
                         _isDragging = false;
@@ -108,7 +108,7 @@ namespace FPS
                         break;
                     default:
                         break;
-                }*/
+                }
             }
         }
 
