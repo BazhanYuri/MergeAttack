@@ -15,6 +15,11 @@ namespace FPS
 
         public async Task SetCountOfKills(int count, int reward)
         {
+            if (count == 0)
+            {
+                return;
+            }
+            gameObject.SetActive(true);
             int allReward = count * reward;
             Sequence seq = DOTween.Sequence();
             seq.Append(_textCount.DOCounter(0, count, 0.5f).OnUpdate(() => _textCount.text = "X" + _textCount.text));

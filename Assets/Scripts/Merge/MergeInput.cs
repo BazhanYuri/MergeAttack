@@ -40,8 +40,6 @@ namespace Merge
 
         private void CheckSlide()
         {
-            Vector2 pos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
@@ -85,7 +83,12 @@ namespace Merge
 
         private bool Detect(Vector2 touchPos)
         {
-            if (RayCheck(touchPos).TryGetComponent(out ColliderTypeDetect collideType))
+            Collider collider = RayCheck(touchPos);
+            if (collider == null)
+            {
+                return false;
+            }
+            if (collider.TryGetComponent(out ColliderTypeDetect collideType))
             {
                 if (collideType.Type == GameObjectType.Item)
                 {

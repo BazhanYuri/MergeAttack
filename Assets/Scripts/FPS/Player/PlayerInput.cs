@@ -21,7 +21,6 @@ namespace FPS
 {
     public class PlayerInput : MonoBehaviour
     {
-        [SerializeField] private UnityEngine.InputSystem.PlayerInput _playerInput;
         [SerializeField] private Player _player;
         [SerializeField] private Clamps _clampX;
         [SerializeField] private Clamps _clampY;
@@ -47,7 +46,6 @@ namespace FPS
         }
         private void OnEnable()
         {
-
             TouchSimulation.Enable();
             EnhancedTouchSupport.Enable();
             UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += SwipeStarted;
@@ -71,7 +69,7 @@ namespace FPS
             }
 
             CheckInput();
-            SwipePerformed(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches[0]);
+            //SwipePerformed(UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches[0]);
         }
         private void FixedUpdate()
         {

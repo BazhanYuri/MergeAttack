@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(HideUI(_FPSUI));
         StartCoroutine(ShowUI(_levelCompletedUI));
+
+        yield return new WaitForSeconds(0.5f);
         _levelCompletedUI.GetComponent<CompletedScreen>().ShowRewards();
     }
 }
